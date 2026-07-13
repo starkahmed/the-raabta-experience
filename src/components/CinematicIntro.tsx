@@ -139,42 +139,6 @@ export function CinematicIntro() {
           </div>
         </section>
 
-        {/* Scene 3 — Nazziya & Ahmed */}
-        <section className="cine-scene cine-scene-3 absolute inset-0 flex items-center justify-center px-6 will-change-[opacity,transform,filter]">
-          <div className="cine-content text-center">
-            <h2
-              className="text-cream text-6xl md:text-8xl leading-none"
-              style={{
-                fontFamily: "'Cormorant Garamond', serif",
-                letterSpacing: "0.06em",
-                textShadow: "0 0 30px oklch(0.85 0.15 65 / 0.4)",
-              }}
-            >
-              NAZZIYA
-            </h2>
-            <p
-              className="text-ember my-6 text-4xl md:text-5xl"
-              style={{ fontFamily: "'Pinyon Script', cursive" }}
-            >
-              and
-            </p>
-            <h2
-              className="text-cream text-6xl md:text-8xl leading-none"
-              style={{
-                fontFamily: "'Cormorant Garamond', serif",
-                letterSpacing: "0.06em",
-                textShadow: "0 0 30px oklch(0.85 0.15 65 / 0.4)",
-              }}
-            >
-              AHMED
-            </h2>
-            <div className="mt-10 flex items-center justify-center gap-4 text-gold/80">
-              <div className="h-px w-16 bg-gold/60" />
-              <span>✦</span>
-              <div className="h-px w-16 bg-gold/60" />
-            </div>
-          </div>
-        </section>
 
         {/* Golden fog rising into the hero */}
         <div

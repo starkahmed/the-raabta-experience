@@ -39,7 +39,63 @@ function Invitation() {
           height={1920}
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-cream/50" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/10 to-cream/50" />
+
+        {/* Floating lanterns */}
+        <div className="pointer-events-none absolute inset-0 overflow-hidden z-[1]" aria-hidden="true">
+          {[
+            { left: "8%",  size: 34, delay: 0,   dur: 18, sway: 5 },
+            { left: "22%", size: 22, delay: 4,   dur: 22, sway: 6 },
+            { left: "38%", size: 42, delay: 8,   dur: 20, sway: 4.5 },
+            { left: "54%", size: 26, delay: 2,   dur: 24, sway: 7 },
+            { left: "68%", size: 38, delay: 11,  dur: 19, sway: 5.5 },
+            { left: "82%", size: 24, delay: 6,   dur: 23, sway: 6.5 },
+            { left: "92%", size: 30, delay: 14,  dur: 21, sway: 5 },
+          ].map((l, i) => (
+            <div
+              key={i}
+              className="absolute bottom-0"
+              style={{
+                left: l.left,
+                width: l.size,
+                animation: `lantern-rise ${l.dur}s linear ${l.delay}s infinite`,
+              }}
+            >
+              <div style={{ animation: `lantern-sway ${l.sway}s ease-in-out infinite` }}>
+                {/* Glow halo */}
+                <div
+                  className="absolute -inset-4 rounded-full"
+                  style={{
+                    background:
+                      "radial-gradient(circle, oklch(0.85 0.16 65 / 0.55) 0%, transparent 70%)",
+                    animation: `lantern-flicker ${2 + (i % 3)}s ease-in-out infinite`,
+                  }}
+                />
+                {/* Lantern body */}
+                <svg viewBox="0 0 40 56" width={l.size} height={l.size * 1.4} className="relative">
+                  {/* top cap */}
+                  <rect x="14" y="2" width="12" height="3" rx="1" fill="oklch(0.4 0.05 60)" />
+                  {/* body */}
+                  <path
+                    d="M8 10 Q20 4 32 10 L34 34 Q20 46 6 34 Z"
+                    fill="oklch(0.88 0.15 65)"
+                    stroke="oklch(0.55 0.12 45)"
+                    strokeWidth="0.8"
+                    opacity="0.95"
+                  />
+                  {/* vertical ribs */}
+                  <path d="M20 6 L20 42" stroke="oklch(0.55 0.12 45 / 0.5)" strokeWidth="0.5" />
+                  <path d="M13 8 Q13 26 11 40" stroke="oklch(0.55 0.12 45 / 0.4)" strokeWidth="0.4" fill="none" />
+                  <path d="M27 8 Q27 26 29 40" stroke="oklch(0.55 0.12 45 / 0.4)" strokeWidth="0.4" fill="none" />
+                  {/* bottom fringe */}
+                  <path d="M10 38 L12 46 M15 40 L15 48 M20 41 L20 50 M25 40 L25 48 M30 38 L28 46"
+                    stroke="oklch(0.72 0.11 70)" strokeWidth="0.7" strokeLinecap="round" />
+                </svg>
+              </div>
+            </div>
+          ))}
+        </div>
+
         <div className="relative z-10 text-center px-6 animate-fade-up">
           <p className="text-cream/90 tracking-widest-plus text-xs md:text-sm mb-6">THE WEDDING OF</p>
           <h1 className="text-display text-cream text-6xl sm:text-7xl md:text-8xl leading-none drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)]">

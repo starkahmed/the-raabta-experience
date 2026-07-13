@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import heroImg from "@/assets/hero-lanterns.jpg";
 import archImg from "@/assets/mughal-arch.jpg";
+import heroAsset from "@/assets/hero-mosque-lanterns.jpg.asset.json";
 import nikahAsset from "@/assets/nikah-stage.jpg.asset.json";
 import walimaAsset from "@/assets/walima-stage.jpg.asset.json";
 
@@ -33,7 +33,7 @@ function Invitation() {
       {/* HERO */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <img
-          src={heroImg}
+          src={heroAsset.url}
           alt="Sky lanterns floating above a Mughal palace at dusk"
           width={1536}
           height={1920}

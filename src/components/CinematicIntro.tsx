@@ -46,7 +46,7 @@ export function CinematicIntro() {
         scrollTrigger: {
           trigger: container,
           start: "top top",
-          end: "+=320%",
+          end: "+=220%",
           scrub: 0.8,
           pin: stage,
           pinSpacing: true,
@@ -61,18 +61,11 @@ export function CinematicIntro() {
           { autoAlpha: 1, yPercent: 0, scale: 1, filter: "blur(0px)" },
           0.1
         )
-        .to(contents[1], { yPercent: -8, autoAlpha: 0, filter: "blur(12px)", scale: 1.02 }, 1)
-        .fromTo(
-          scenes[2],
-          { autoAlpha: 0, yPercent: 6, scale: 0.98, filter: "blur(14px)" },
-          { autoAlpha: 1, yPercent: 0, scale: 1, filter: "blur(0px)" },
-          1.1
-        )
-        .to(fog, { autoAlpha: 1, yPercent: 0, ease: "power1.out" }, 2)
+        .to(fog, { autoAlpha: 1, yPercent: 0, ease: "power1.out" }, 1)
         .to(
-          contents[2],
+          contents[1],
           { yPercent: -12, autoAlpha: 0, filter: "blur(10px)", scale: 1.04 },
-          2.2
+          1.2
         );
     }, container);
 
@@ -139,42 +132,6 @@ export function CinematicIntro() {
           </div>
         </section>
 
-        {/* Scene 3 — Nazziya & Ahmed */}
-        <section className="cine-scene cine-scene-3 absolute inset-0 flex items-center justify-center px-6 will-change-[opacity,transform,filter]">
-          <div className="cine-content text-center">
-            <h2
-              className="text-cream text-6xl md:text-8xl leading-none"
-              style={{
-                fontFamily: "'Cormorant Garamond', serif",
-                letterSpacing: "0.06em",
-                textShadow: "0 0 30px oklch(0.85 0.15 65 / 0.4)",
-              }}
-            >
-              NAZZIYA
-            </h2>
-            <p
-              className="text-ember my-6 text-4xl md:text-5xl"
-              style={{ fontFamily: "'Pinyon Script', cursive" }}
-            >
-              and
-            </p>
-            <h2
-              className="text-cream text-6xl md:text-8xl leading-none"
-              style={{
-                fontFamily: "'Cormorant Garamond', serif",
-                letterSpacing: "0.06em",
-                textShadow: "0 0 30px oklch(0.85 0.15 65 / 0.4)",
-              }}
-            >
-              AHMED
-            </h2>
-            <div className="mt-10 flex items-center justify-center gap-4 text-gold/80">
-              <div className="h-px w-16 bg-gold/60" />
-              <span>✦</span>
-              <div className="h-px w-16 bg-gold/60" />
-            </div>
-          </div>
-        </section>
 
         {/* Golden fog rising into the hero */}
         <div

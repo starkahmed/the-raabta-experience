@@ -2,8 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import heroImg from "@/assets/hero-lanterns.jpg";
 import archImg from "@/assets/mughal-arch.jpg";
-import mehendiImg from "@/assets/event-mehendi.jpg";
-import nikahImg from "@/assets/event-nikah.jpg";
+import nikahAsset from "@/assets/nikah-stage.jpg.asset.json";
+import walimaAsset from "@/assets/walima-stage.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Invitation,

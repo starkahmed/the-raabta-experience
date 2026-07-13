@@ -128,3 +128,20 @@
   50%      { transform: translateX(14px); }
 }
 
+/* Night sky: twinkle, drift, shoot */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.25; }
+  50%      { opacity: 1; }
+}
+@keyframes particle-drift {
+  0%   { transform: translate3d(0, 0, 0); opacity: 0.2; }
+  50%  { transform: translate3d(-8px, -24px, 0); opacity: 0.7; }
+  100% { transform: translate3d(6px, -48px, 0); opacity: 0; }
+}
+@keyframes shoot {
+  0%   { opacity: 0; transform: translate3d(0, 0, 0) rotate(-20deg); }
+  10%  { opacity: 1; }
+  100% { opacity: 0; transform: translate3d(320px, 120px, 0) rotate(-20deg); }
+}
+
+

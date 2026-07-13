@@ -33,7 +33,7 @@ function Invitation() {
       {/* HERO */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <img
-          src={heroImg}
+          src={heroAsset.url}
           alt="Sky lanterns floating above a Mughal palace at dusk"
           width={1536}
           height={1920}

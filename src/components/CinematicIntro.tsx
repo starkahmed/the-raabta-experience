@@ -18,90 +18,72 @@ export function CinematicIntro() {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const mm = gsap.matchMedia();
+    const stage = stageRef.current;
+    const container = containerRef.current;
+    if (!stage || !container) return;
 
-    mm.add(
-      {
-        // one config for every breakpoint — pin distance scales with viewport
-        isMobile: "(max-width: 767px)",
-        isDesktop: "(min-width: 768px)",
-        reduce: "(prefers-reduced-motion: reduce)",
-      },
-      (ctx) => {
-        const { reduce } = ctx.conditions as { reduce: boolean };
-        const stage = stageRef.current;
-        const container = containerRef.current;
-        if (!stage || !container) return;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-        const scenes = gsap.utils.toArray<HTMLElement>(".cine-scene", container);
-        const contents = scenes.map((s) => s.querySelector<HTMLElement>(".cine-content")!);
-        const fog = container.querySelector<HTMLElement>(".cine-gold-fog");
+    const ctx = gsap.context(() => {
+      const scenes = gsap.utils.toArray<HTMLElement>(".cine-scene", container);
+      const contents = scenes.map((s) => s.querySelector<HTMLElement>(".cine-content")!);
+      const fog = container.querySelector<HTMLElement>(".cine-gold-fog");
 
-        // Initial state — only first scene visible
-        gsap.set(scenes, { autoAlpha: 0, yPercent: 6, scale: 0.98, filter: "blur(14px)" });
-        gsap.set(scenes[0], { autoAlpha: 1, yPercent: 0, scale: 1, filter: "blur(0px)" });
-        gsap.set(fog, { autoAlpha: 0, yPercent: 30 });
+      gsap.set(scenes, { autoAlpha: 0, yPercent: 6, scale: 0.98, filter: "blur(14px)" });
+      gsap.set(scenes[0], { autoAlpha: 1, yPercent: 0, scale: 1, filter: "blur(0px)" });
+      gsap.set(fog, { autoAlpha: 0, yPercent: 30 });
 
-        if (reduce) {
-          gsap.set(scenes, { autoAlpha: 1, yPercent: 0, scale: 1, filter: "none" });
-          return;
-        }
-
-        // Master timeline drives every transition off one scrubbed scrollTrigger,
-        // so camera velocity stays constant between scenes on every breakpoint.
-        const tl = gsap.timeline({
-          defaults: { ease: "power2.inOut" },
-          scrollTrigger: {
-            trigger: container,
-            start: "top top",
-            // 100vh per scene transition + a tail for the hero handoff
-            end: "+=" + (window.innerHeight * 3.2),
-            scrub: 0.8,
-            pin: stage,
-            pinSpacing: true,
-            anticipatePin: 1,
-            invalidateOnRefresh: true,
-          },
-        });
-
-        // Scene 1 → Scene 2
-        tl.to(contents[0], { yPercent: -8, autoAlpha: 0, filter: "blur(12px)", scale: 1.02 }, 0)
-          .fromTo(
-            scenes[1],
-            { autoAlpha: 0, yPercent: 6, scale: 0.98, filter: "blur(14px)" },
-            { autoAlpha: 1, yPercent: 0, scale: 1, filter: "blur(0px)" },
-            0.1
-          )
-
-          // Scene 2 → Scene 3
-          .to(contents[1], { yPercent: -8, autoAlpha: 0, filter: "blur(12px)", scale: 1.02 }, 1)
-          .fromTo(
-            scenes[2],
-            { autoAlpha: 0, yPercent: 6, scale: 0.98, filter: "blur(14px)" },
-            { autoAlpha: 1, yPercent: 0, scale: 1, filter: "blur(0px)" },
-            1.1
-          )
-
-          // Scene 3 → hero handoff (golden fog rises, scene drifts up & fades)
-          .to(fog, { autoAlpha: 1, yPercent: 0, ease: "power1.out" }, 2)
-          .to(
-            contents[2],
-            { yPercent: -12, autoAlpha: 0, filter: "blur(10px)", scale: 1.04 },
-            2.2
-          );
-
-        // Refresh once fonts/images settle so pin math matches painted layout
-        const refresh = () => ScrollTrigger.refresh();
-        const t = window.setTimeout(refresh, 300);
-        window.addEventListener("load", refresh);
-        return () => {
-          window.clearTimeout(t);
-          window.removeEventListener("load", refresh);
-        };
+      if (reduce) {
+        gsap.set(scenes, { autoAlpha: 1, yPercent: 0, scale: 1, filter: "none" });
+        return;
       }
-    );
 
-    return () => mm.revert();
+      // One scrubbed timeline pins the stage and drives every transition, so
+      // camera velocity stays constant across breakpoints (pin distance is
+      // expressed in viewport units, not pixels).
+      gsap.timeline({
+        defaults: { ease: "power2.inOut" },
+        scrollTrigger: {
+          trigger: container,
+          start: "top top",
+          end: "+=320%",
+          scrub: 0.8,
+          pin: stage,
+          pinSpacing: true,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+        },
+      })
+        .to(contents[0], { yPercent: -8, autoAlpha: 0, filter: "blur(12px)", scale: 1.02 }, 0)
+        .fromTo(
+          scenes[1],
+          { autoAlpha: 0, yPercent: 6, scale: 0.98, filter: "blur(14px)" },
+          { autoAlpha: 1, yPercent: 0, scale: 1, filter: "blur(0px)" },
+          0.1
+        )
+        .to(contents[1], { yPercent: -8, autoAlpha: 0, filter: "blur(12px)", scale: 1.02 }, 1)
+        .fromTo(
+          scenes[2],
+          { autoAlpha: 0, yPercent: 6, scale: 0.98, filter: "blur(14px)" },
+          { autoAlpha: 1, yPercent: 0, scale: 1, filter: "blur(0px)" },
+          1.1
+        )
+        .to(fog, { autoAlpha: 1, yPercent: 0, ease: "power1.out" }, 2)
+        .to(
+          contents[2],
+          { yPercent: -12, autoAlpha: 0, filter: "blur(10px)", scale: 1.04 },
+          2.2
+        );
+    }, container);
+
+    const refresh = () => ScrollTrigger.refresh();
+    const t = window.setTimeout(refresh, 300);
+    window.addEventListener("load", refresh);
+    return () => {
+      window.clearTimeout(t);
+      window.removeEventListener("load", refresh);
+      ctx.revert();
+    };
   }, []);
 
   return (

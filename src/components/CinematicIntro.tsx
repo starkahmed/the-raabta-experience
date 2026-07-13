@@ -46,7 +46,7 @@ export function CinematicIntro() {
         scrollTrigger: {
           trigger: container,
           start: "top top",
-          end: "+=320%",
+          end: "+=220%",
           scrub: 0.8,
           pin: stage,
           pinSpacing: true,
@@ -61,18 +61,11 @@ export function CinematicIntro() {
           { autoAlpha: 1, yPercent: 0, scale: 1, filter: "blur(0px)" },
           0.1
         )
-        .to(contents[1], { yPercent: -8, autoAlpha: 0, filter: "blur(12px)", scale: 1.02 }, 1)
-        .fromTo(
-          scenes[2],
-          { autoAlpha: 0, yPercent: 6, scale: 0.98, filter: "blur(14px)" },
-          { autoAlpha: 1, yPercent: 0, scale: 1, filter: "blur(0px)" },
-          1.1
-        )
-        .to(fog, { autoAlpha: 1, yPercent: 0, ease: "power1.out" }, 2)
+        .to(fog, { autoAlpha: 1, yPercent: 0, ease: "power1.out" }, 1)
         .to(
-          contents[2],
+          contents[1],
           { yPercent: -12, autoAlpha: 0, filter: "blur(10px)", scale: 1.04 },
-          2.2
+          1.2
         );
     }, container);
 

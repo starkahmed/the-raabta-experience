@@ -2,8 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import heroImg from "@/assets/hero-lanterns.jpg";
 import archImg from "@/assets/mughal-arch.jpg";
-import mehendiImg from "@/assets/event-mehendi.jpg";
-import nikahImg from "@/assets/event-nikah.jpg";
+import nikahAsset from "@/assets/nikah-stage.jpg.asset.json";
+import walimaAsset from "@/assets/walima-stage.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Invitation,
@@ -105,8 +105,8 @@ function Invitation() {
           <div className="relative">
             <div className="absolute -inset-4 bg-gold/10 rounded-2xl -rotate-1" />
             <img
-              src={nikahImg}
-              alt="Nikah pavilion decorated with lanterns"
+              src={nikahAsset.url}
+              alt="Nikah floral arch stage with white and blush roses"
               width={900}
               height={1100}
               loading="lazy"
@@ -131,6 +131,47 @@ function Invitation() {
 
             <a
               href="https://www.google.com/maps/search/?api=1&query=Meetan+Darbar+Mitan+Ghat+Patna+City"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-8 text-sm tracking-widest-plus text-ember border-b border-ember pb-1 hover:text-ink hover:border-ink transition"
+            >
+              SEE THE ROUTE
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* WALIMA EVENT */}
+      <section className="relative py-24 px-6" style={{ background: "linear-gradient(180deg, oklch(0.92 0.04 70) 0%, var(--cream) 100%)" }}>
+        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center md:[&>div:first-child]:order-2">
+          <div className="relative">
+            <div className="absolute -inset-4 bg-gold/10 rounded-2xl rotate-1" />
+            <img
+              src={walimaAsset.url}
+              alt="Walima reception stage with illuminated white arches and florals"
+              width={900}
+              height={1100}
+              loading="lazy"
+              className="relative w-full aspect-[4/5] object-cover rounded-xl shadow-2xl"
+            />
+          </div>
+          <div className="text-center md:text-left">
+            <div className="text-gold text-2xl mb-3">✦</div>
+            <p className="text-script text-3xl text-ember">the</p>
+            <h3 className="text-display text-6xl md:text-7xl text-ink mb-3">Walima</h3>
+            <p className="text-sm tracking-widest-plus text-muted-foreground mb-6">RECEPTION</p>
+            <div className="w-16 h-px bg-gold my-5 mx-auto md:mx-0" />
+            <p className="text-xl mb-1">Monday, 19 October 2026</p>
+            <p className="text-muted-foreground italic mb-6">Evening</p>
+
+            <p className="text-display text-2xl text-ink">Raga Imperio</p>
+            <p className="text-muted-foreground text-sm mt-2 leading-relaxed">
+              Thathwade<br />
+              Pune, Maharashtra
+            </p>
+
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Raga+Imperio+Thathwade+Pune"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block mt-8 text-sm tracking-widest-plus text-ember border-b border-ember pb-1 hover:text-ink hover:border-ink transition"

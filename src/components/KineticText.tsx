@@ -13,6 +13,7 @@ export function KineticText({
   letterClassName = "cine-letter",
   baseDelay = 0,
   step = 0.03,
+  ...rest
 }: {
   text: string;
   as?: ElementType;
@@ -21,6 +22,7 @@ export function KineticText({
   letterClassName?: string;
   baseDelay?: number;
   step?: number;
+  [key: `data-${string}`]: string | undefined;
 }) {
   const words = text.split(" ");
   let idx = 0;

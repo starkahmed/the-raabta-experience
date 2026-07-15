@@ -5,8 +5,10 @@ import heroAsset from "@/assets/hero-mosque-lanterns.jpg.asset.json";
 import nikahAsset from "@/assets/nikah-stage.jpg.asset.json";
 import walimaAsset from "@/assets/walima-stage.jpg.asset.json";
 import { NightSky } from "@/components/NightSky";
-import { CinematicIntro } from "@/components/CinematicIntro";
 import { SmoothScroll } from "@/components/SmoothScroll";
+import { CursorGlow } from "@/components/CursorGlow";
+import { Chapter } from "@/components/Chapter";
+import { KineticText } from "@/components/KineticText";
 
 export const Route = createFileRoute("/")({
   component: Invitation,
@@ -37,224 +39,274 @@ function Invitation() {
     <>
       <SmoothScroll />
       <NightSky />
-      <main className="text-ink">
-        {/* CINEMATIC INTRO — scenes 1-3 over the night sky */}
-        <CinematicIntro />
-
-        {/* HERO — scene 4, mosque rises into view */}
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-          {/* Soft dark-to-warm blend so the mosque emerges from the night sky */}
-          <div
-            className="absolute inset-x-0 -top-40 h-64 pointer-events-none z-[2]"
-            style={{
-              background:
-                "linear-gradient(180deg, transparent 0%, oklch(0.15 0.06 250 / 0.4) 60%, oklch(0.35 0.1 40 / 0.4) 100%)",
-            }}
-          />
-          <img
-            src={heroAsset.url}
-            alt="Sky lanterns floating above a Mughal palace at dusk"
-            width={1536}
-            height={1920}
-            className="absolute inset-0 h-full w-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/10 to-cream/60" />
-
-          {/* Floating lanterns */}
-          <div className="pointer-events-none absolute inset-0 overflow-hidden z-[1]" aria-hidden="true">
-            {[
-              { left: "8%",  size: 34, delay: 0,   dur: 18, sway: 5,   rot: -4, bright: 0.55 },
-              { left: "22%", size: 22, delay: 4,   dur: 22, sway: 6,   rot:  3, bright: 0.7  },
-              { left: "38%", size: 42, delay: 8,   dur: 20, sway: 4.5, rot: -2, bright: 0.5  },
-              { left: "54%", size: 26, delay: 2,   dur: 24, sway: 7,   rot:  5, bright: 0.8  },
-              { left: "68%", size: 38, delay: 11,  dur: 19, sway: 5.5, rot: -3, bright: 0.6  },
-              { left: "82%", size: 24, delay: 6,   dur: 23, sway: 6.5, rot:  4, bright: 0.75 },
-              { left: "92%", size: 30, delay: 14,  dur: 21, sway: 5,   rot: -5, bright: 0.65 },
-            ].map((l, i) => (
-              <div
-                key={i}
-                className="absolute bottom-0"
-                style={{
-                  left: l.left,
-                  width: l.size,
-                  animation: `lantern-rise ${l.dur}s linear ${l.delay}s infinite`,
-                }}
-              >
-                <div style={{ animation: `lantern-sway ${l.sway}s ease-in-out infinite`, transform: `rotate(${l.rot}deg)` }}>
-                  {/* Glow halo */}
-                  <div
-                    className="absolute -inset-4 rounded-full"
-                    style={{
-                      background:
-                        `radial-gradient(circle, oklch(0.85 0.16 65 / ${l.bright}) 0%, transparent 70%)`,
-                      animation: `lantern-flicker ${2 + (i % 3)}s ease-in-out infinite`,
-                    }}
-                  />
-                  {/* Lantern body */}
-                  <svg viewBox="0 0 40 56" width={l.size} height={l.size * 1.4} className="relative">
-                    <rect x="14" y="2" width="12" height="3" rx="1" fill="oklch(0.4 0.05 60)" />
-                    <path
-                      d="M8 10 Q20 4 32 10 L34 34 Q20 46 6 34 Z"
-                      fill="oklch(0.88 0.15 65)"
-                      stroke="oklch(0.55 0.12 45)"
-                      strokeWidth="0.8"
-                      opacity="0.95"
-                    />
-                    <path d="M20 6 L20 42" stroke="oklch(0.55 0.12 45 / 0.5)" strokeWidth="0.5" />
-                    <path d="M13 8 Q13 26 11 40" stroke="oklch(0.55 0.12 45 / 0.4)" strokeWidth="0.4" fill="none" />
-                    <path d="M27 8 Q27 26 29 40" stroke="oklch(0.55 0.12 45 / 0.4)" strokeWidth="0.4" fill="none" />
-                    <path d="M10 38 L12 46 M15 40 L15 48 M20 41 L20 50 M25 40 L25 48 M30 38 L28 46"
-                      stroke="oklch(0.72 0.11 70)" strokeWidth="0.7" strokeLinecap="round" />
-                  </svg>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="relative z-10 text-center px-6 animate-fade-up">
-            <p className="text-cream/90 tracking-widest-plus text-xs md:text-sm mb-6">THE WEDDING OF</p>
-            <h1 className="text-display text-cream text-6xl sm:text-7xl md:text-8xl leading-none drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
-              AHMED RAZA
-            </h1>
-            <p className="text-cream/90 tracking-widest-plus text-sm md:text-base my-4">W E D S</p>
-            <h1 className="text-display text-cream text-6xl sm:text-7xl md:text-8xl leading-none drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
-              NAZZIYA
-            </h1>
-            <p className="mt-8 text-cream/80 text-script text-3xl md:text-4xl">17 October 2026 · Patna</p>
-          </div>
-        </section>
-
-        {/* Everything below sits on cream — night sky ends here */}
-        <div className="relative bg-cream">
-          {/* BISMILLAH + VERSE */}
-          <section className="py-24 md:py-32 px-6 text-center max-w-3xl mx-auto">
-            <p className="text-4xl md:text-5xl text-ink mb-4" dir="rtl" lang="ar" style={{ fontFamily: "'Amiri', serif" }}>
+      <CursorGlow />
+      <main className="text-cream">
+        {/* CHAPTER 01 — Bismillah */}
+        <Chapter id="bismillah">
+          <div className="text-center max-w-3xl">
+            <p className="cine-fade text-cream/60 tracking-[0.5em] text-[10px] md:text-xs mb-10" style={{ ["--fade-delay" as string]: "0s" }}>
+              CHAPTER 01 · IN HIS NAME
+            </p>
+            <p
+              className="text-5xl md:text-7xl mb-10 text-cream"
+              dir="rtl"
+              lang="ar"
+              data-cursor="magnetic"
+              style={{
+                fontFamily: "'Amiri', serif",
+                textShadow: "0 0 40px oklch(0.85 0.15 65 / 0.5), 0 0 80px oklch(0.85 0.15 65 / 0.3)",
+              }}
+            >
               بِسْمِ اللَّهِ الرَّحْمٰنِ الرَّحِيْم
             </p>
-            <p className="text-script text-2xl md:text-3xl text-ember mb-4">Bismillahir Rahmanir Raheem</p>
-            <p className="text-sm italic text-muted-foreground">
-              In the Name of Allah, The Most Compassionate, The Most Merciful
+            <KineticText
+              text="BISMILLAHIR RAHMANIR RAHIM"
+              as="p"
+              className="text-cream/80 tracking-[0.4em] text-xs md:text-sm font-light"
+              step={0.025}
+            />
+            <p className="cine-fade mt-10 text-cream/50 italic leading-relaxed" style={{ ["--fade-delay" as string]: "1s" }}>
+              In the Name of Allah,<br />The Most Compassionate, The Most Merciful.
             </p>
+          </div>
+        </Chapter>
 
-            <div className="my-16 flex items-center justify-center gap-4">
-              <div className="h-px w-16 bg-gold" />
-              <span className="text-gold text-xl">✦</span>
-              <div className="h-px w-16 bg-gold" />
-            </div>
-
-            <blockquote className="text-display text-2xl md:text-3xl leading-relaxed text-ink italic">
-              &ldquo;And among His signs is that He created for you spouses from among yourselves
-              that you may find tranquility in them; and He placed between you affection and mercy.&rdquo;
-            </blockquote>
-            <p className="mt-6 text-sm tracking-widest-plus text-muted-foreground">— SURAH AR-RUM (30:21)</p>
-          </section>
-
-          {/* INVITATION */}
-          <section className="py-20 px-6 text-center max-w-3xl mx-auto">
-            <p className="text-sm tracking-widest-plus text-muted-foreground mb-8">TOGETHER WITH OUR FAMILIES</p>
-
-            <p className="text-display text-2xl md:text-3xl">Mr. &amp; Mrs. Firoz-Uddin Shaikh</p>
-            <div className="text-gold my-4">◆</div>
-            <p className="text-display text-2xl md:text-3xl">Mr. &amp; Mrs. Salim Saifi</p>
-
-            <p className="text-script text-4xl md:text-5xl text-ember mt-14 mb-6">cordially invite you</p>
-            <p className="text-lg text-muted-foreground">to grace the sacred Nikah ceremony of</p>
-
-            <div className="my-10">
-              <p className="text-display text-5xl md:text-6xl">Ahmed Raza Shaikh</p>
-              <p className="text-script text-3xl text-gold my-3">&amp;</p>
-              <p className="text-display text-5xl md:text-6xl">Nazziya</p>
-            </div>
-
-            <p className="max-w-xl mx-auto text-muted-foreground italic leading-relaxed">
-              With the blessings of Almighty Allah, your prayers and presence will make our
-              celebration even more memorable.
+        {/* CHAPTER 02 — Verse */}
+        <Chapter id="verse">
+          <div className="text-center max-w-3xl">
+            <p className="cine-fade text-gold/70 tracking-[0.5em] text-[10px] md:text-xs mb-12">
+              CHAPTER 02 · A SIGN FROM HIM
             </p>
-          </section>
+            <KineticText
+              text="And He placed between you"
+              as="p"
+              className="text-display italic text-cream text-3xl md:text-5xl leading-tight"
+              step={0.035}
+            />
+            <KineticText
+              text="affection and mercy."
+              as="p"
+              className="text-display italic text-ember text-4xl md:text-6xl leading-tight mt-2"
+              step={0.04}
+              baseDelay={0.4}
+              data-cursor="magnetic"
+            />
+            <p className="cine-fade mt-10 text-cream/50 text-xs tracking-[0.4em]" style={{ ["--fade-delay" as string]: "1.4s" }}>
+              SURAH AR-RUM · 30:21
+            </p>
+          </div>
+        </Chapter>
 
-          {/* NIKAH EVENT */}
-          <section className="relative py-24 px-6" style={{ background: "linear-gradient(180deg, var(--cream) 0%, oklch(0.92 0.04 70) 100%)" }}>
-            <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-              <div className="relative">
-                <div className="absolute -inset-4 bg-gold/10 rounded-2xl -rotate-1" />
+        {/* CHAPTER 03 — Invitation */}
+        <Chapter id="invitation">
+          <div className="text-center max-w-3xl">
+            <p className="cine-fade text-cream/60 tracking-[0.5em] text-[10px] md:text-xs mb-12">
+              CHAPTER 03 · TOGETHER WITH OUR FAMILIES
+            </p>
+            <KineticText
+              text="Mr. & Mrs. Firoz-Uddin Shaikh"
+              as="p"
+              className="text-display text-cream text-xl md:text-2xl"
+              step={0.02}
+            />
+            <p className="cine-fade text-gold text-xl my-4" style={{ ["--fade-delay" as string]: "0.9s" }}>◆</p>
+            <KineticText
+              text="Mr. & Mrs. Salim Saifi"
+              as="p"
+              className="text-display text-cream text-xl md:text-2xl"
+              step={0.02}
+              baseDelay={1}
+            />
+            <p
+              className="cine-fade text-script text-ember text-5xl md:text-7xl mt-14"
+              style={{ ["--fade-delay" as string]: "1.6s", fontFamily: "'Pinyon Script', cursive" }}
+              data-cursor="magnetic"
+            >
+              cordially invite you
+            </p>
+            <p className="cine-fade text-cream/70 mt-4 italic" style={{ ["--fade-delay" as string]: "2s" }}>
+              to grace the sacred Nikah ceremony of
+            </p>
+          </div>
+        </Chapter>
+
+        {/* CHAPTER 04 — Bride & Groom */}
+        <Chapter id="couple">
+          <div className="text-center">
+            <p className="cine-fade text-cream/60 tracking-[0.5em] text-[10px] md:text-xs mb-14">
+              CHAPTER 04 · THE COUPLE
+            </p>
+            <KineticText
+              text="AHMED RAZA"
+              as="h1"
+              className="text-display text-cream text-6xl sm:text-7xl md:text-9xl leading-none tracking-tight"
+              step={0.05}
+              baseDelay={0.1}
+            />
+            <p
+              className="cine-fade text-script text-gold text-5xl md:text-7xl my-6"
+              style={{ ["--fade-delay" as string]: "0.9s", fontFamily: "'Pinyon Script', cursive" }}
+              data-cursor="magnetic"
+            >
+              &amp;
+            </p>
+            <KineticText
+              text="NAZZIYA"
+              as="h1"
+              className="text-display text-cream text-6xl sm:text-7xl md:text-9xl leading-none tracking-tight"
+              step={0.05}
+              baseDelay={1.2}
+            />
+            <p className="cine-fade text-cream/60 text-script text-2xl md:text-3xl mt-10" style={{ ["--fade-delay" as string]: "2s" }}>
+              17 October 2026 · Patna
+            </p>
+          </div>
+        </Chapter>
+
+        {/* CHAPTER 05 — Nikah */}
+        <Chapter id="nikah">
+          <div className="max-w-6xl w-full grid md:grid-cols-2 gap-14 items-center">
+            <div className="relative order-2 md:order-1 text-center md:text-left">
+              <p className="cine-fade text-gold/70 tracking-[0.5em] text-[10px] md:text-xs mb-6">
+                CHAPTER 05 · THE CEREMONY
+              </p>
+              <KineticText
+                text="Nikah"
+                as="h2"
+                className="text-display text-cream text-7xl md:text-8xl leading-none"
+                step={0.06}
+                baseDelay={0.1}
+                data-cursor="magnetic"
+              />
+              <div className="cine-fade mt-8 space-y-2 text-cream/85" style={{ ["--fade-delay" as string]: "0.7s" }}>
+                <p className="text-lg">Saturday, 17 October 2026</p>
+                <p className="text-cream/60 italic">After Namaz-e-Isha</p>
+                <div className="w-16 h-px bg-gold my-5 mx-auto md:mx-0" />
+                <p className="text-display text-2xl">Meetan Darbar</p>
+                <p className="text-cream/60 text-sm leading-relaxed">
+                  Bank of Ganga River<br />
+                  Khanqah, Munemia, Mitan Ghat<br />
+                  Patna City — 800008
+                </p>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Meetan+Darbar+Mitan+Ghat+Patna+City"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-cursor="magnetic"
+                  className="inline-block mt-6 text-xs tracking-[0.4em] text-gold border-b border-gold/50 pb-1 hover:text-cream hover:border-cream transition"
+                >
+                  SEE THE ROUTE
+                </a>
+              </div>
+            </div>
+            <div className="order-1 md:order-2 relative">
+              <div className="cine-image relative overflow-hidden rounded-xl">
                 <img
                   src={nikahAsset.url}
                   alt="Nikah floral arch stage with white and blush roses"
                   width={900}
                   height={1100}
                   loading="lazy"
-                  className="relative w-full aspect-[4/5] object-cover rounded-xl shadow-2xl"
+                  className="w-full aspect-[4/5] object-cover"
                 />
-              </div>
-              <div className="text-center md:text-left">
-                <div className="text-gold text-2xl mb-3">✦</div>
-                <p className="text-script text-3xl text-ember">the</p>
-                <h3 className="text-display text-6xl md:text-7xl text-ink mb-3">Nikah</h3>
-                <p className="text-sm tracking-widest-plus text-muted-foreground mb-6">CEREMONY</p>
-                <div className="w-16 h-px bg-gold my-5 mx-auto md:mx-0" />
-                <p className="text-xl mb-1">Saturday, 17 October 2026</p>
-                <p className="text-muted-foreground italic mb-6">After Namaz-e-Isha</p>
-
-                <p className="text-display text-2xl text-ink">Meetan Darbar</p>
-                <p className="text-muted-foreground text-sm mt-2 leading-relaxed">
-                  Bank of Ganga River<br />
-                  Khanqah, Munemia, Mitan Ghat<br />
-                  Patna City — 800008
-                </p>
-
-                <a
-                  href="https://www.google.com/maps/search/?api=1&query=Meetan+Darbar+Mitan+Ghat+Patna+City"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block mt-8 text-sm tracking-widest-plus text-ember border-b border-ember pb-1 hover:text-ink hover:border-ink transition"
-                >
-                  SEE THE ROUTE
-                </a>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
               </div>
             </div>
-          </section>
+          </div>
+        </Chapter>
 
-          {/* WALIMA EVENT */}
-          <section className="relative py-24 px-6" style={{ background: "linear-gradient(180deg, oklch(0.92 0.04 70) 0%, var(--cream) 100%)" }}>
-            <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center md:[&>div:first-child]:order-2">
-              <div className="relative">
-                <div className="absolute -inset-4 bg-gold/10 rounded-2xl rotate-1" />
+        {/* CHAPTER 06 — Walima */}
+        <Chapter id="walima">
+          <div className="max-w-6xl w-full grid md:grid-cols-2 gap-14 items-center">
+            <div className="relative">
+              <div className="cine-image relative overflow-hidden rounded-xl">
                 <img
                   src={walimaAsset.url}
                   alt="Walima reception stage with illuminated white arches and florals"
                   width={900}
                   height={1100}
                   loading="lazy"
-                  className="relative w-full aspect-[4/5] object-cover rounded-xl shadow-2xl"
+                  className="w-full aspect-[4/5] object-cover"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
               </div>
-              <div className="text-center md:text-left">
-                <div className="text-gold text-2xl mb-3">✦</div>
-                <p className="text-script text-3xl text-ember">the</p>
-                <h3 className="text-display text-6xl md:text-7xl text-ink mb-3">Walima</h3>
-                <p className="text-sm tracking-widest-plus text-muted-foreground mb-6">RECEPTION</p>
+            </div>
+            <div className="text-center md:text-left">
+              <p className="cine-fade text-gold/70 tracking-[0.5em] text-[10px] md:text-xs mb-6">
+                CHAPTER 06 · THE RECEPTION
+              </p>
+              <KineticText
+                text="Walima"
+                as="h2"
+                className="text-display text-cream text-7xl md:text-8xl leading-none"
+                step={0.06}
+                baseDelay={0.1}
+                data-cursor="magnetic"
+              />
+              <div className="cine-fade mt-8 space-y-2 text-cream/85" style={{ ["--fade-delay" as string]: "0.7s" }}>
+                <p className="text-lg">Monday, 19 October 2026</p>
+                <p className="text-cream/60 italic">Evening</p>
                 <div className="w-16 h-px bg-gold my-5 mx-auto md:mx-0" />
-                <p className="text-xl mb-1">Monday, 19 October 2026</p>
-                <p className="text-muted-foreground italic mb-6">Evening</p>
-
-                <p className="text-display text-2xl text-ink">Raga Imperio</p>
-                <p className="text-muted-foreground text-sm mt-2 leading-relaxed">
+                <p className="text-display text-2xl">Raga Imperio</p>
+                <p className="text-cream/60 text-sm leading-relaxed">
                   Thathwade<br />
                   Pune, Maharashtra
                 </p>
-
                 <a
                   href="https://www.google.com/maps/search/?api=1&query=Raga+Imperio+Thathwade+Pune"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block mt-8 text-sm tracking-widest-plus text-ember border-b border-ember pb-1 hover:text-ink hover:border-ink transition"
+                  data-cursor="magnetic"
+                  className="inline-block mt-6 text-xs tracking-[0.4em] text-gold border-b border-gold/50 pb-1 hover:text-cream hover:border-cream transition"
                 >
                   SEE THE ROUTE
                 </a>
               </div>
             </div>
-          </section>
+          </div>
+        </Chapter>
 
+        {/* CHAPTER 07 — Cinematic mosque reveal (hero) */}
+        <Chapter id="mosque" className="overflow-hidden">
+          <div className="absolute inset-0">
+            <div className="cine-image absolute inset-0">
+              <img
+                src={heroAsset.url}
+                alt="Sky lanterns floating above a Mughal palace at dusk"
+                width={1536}
+                height={1920}
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black/70" />
+            </div>
+          </div>
+          <div className="relative z-10 text-center px-6">
+            <p className="cine-fade text-cream/70 tracking-[0.5em] text-[10px] md:text-xs mb-6">
+              CHAPTER 07 · SAVE THE DATE
+            </p>
+            <KineticText
+              text="Under sacred skies"
+              as="p"
+              className="text-script text-gold text-4xl md:text-6xl mb-4"
+              step={0.04}
+              baseDelay={0.2}
+            />
+            <KineticText
+              text="we begin forever."
+              as="p"
+              className="text-display italic text-cream text-3xl md:text-5xl"
+              step={0.04}
+              baseDelay={0.9}
+              data-cursor="magnetic"
+            />
+            <p className="cine-fade mt-10 text-cream/80 tracking-[0.4em] text-xs" style={{ ["--fade-delay" as string]: "1.8s" }}>
+              17.10.2026 · PATNA CITY
+            </p>
+          </div>
+        </Chapter>
+
+        {/* Everything below sits on cream */}
+        <div className="relative bg-cream text-ink">
           {/* RSVP */}
           <section className="relative overflow-hidden">
             <img
@@ -268,11 +320,11 @@ function Invitation() {
             <div className="absolute inset-0 flex items-center justify-center bg-black/30">
               <div className="text-center text-cream px-6">
                 <p className="text-script text-5xl md:text-6xl mb-2">Please</p>
-                <h2 className="text-display text-7xl md:text-8xl tracking-widest">RSVP</h2>
+                <h2 className="text-display text-7xl md:text-8xl tracking-widest" data-cursor="magnetic">RSVP</h2>
                 <p className="mt-6 max-w-md mx-auto text-cream/90 italic">
                   Kindly bless us with your presence and confirm your attendance.
                 </p>
-                <button className="mt-8 px-8 py-3 rounded-full bg-cream text-ink text-sm tracking-widest-plus hover:bg-gold transition">
+                <button data-cursor="magnetic" className="mt-8 px-8 py-3 rounded-full bg-cream text-ink text-sm tracking-widest-plus hover:bg-gold transition">
                   CONFIRM ATTENDANCE
                 </button>
               </div>
@@ -290,7 +342,7 @@ function Invitation() {
                   { icon: "◈", title: "Ceremony", body: "The Nikah will be solemnized right after Namaz-e-Isha. Kindly be seated in advance." },
                   { icon: "✦", title: "Duas", body: "Your heartfelt prayers are the most treasured gift for the couple." },
                 ].map((t) => (
-                  <div key={t.title} className="p-8 rounded-2xl bg-card border border-border/60 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+                  <div key={t.title} data-cursor="magnetic" className="p-8 rounded-2xl bg-card border border-border/60 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
                     <div className="text-4xl text-gold mb-4">{t.icon}</div>
                     <h3 className="text-display text-2xl mb-3">{t.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">{t.body}</p>

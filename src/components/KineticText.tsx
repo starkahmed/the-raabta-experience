@@ -33,10 +33,7 @@ export function KineticText({
         <span
           key={`${wi}-${i}`}
           className={`${letterClassName} inline-block will-change-transform`}
-          style={{
-            transform: "translateY(110%)",
-            transitionDelay: `${baseDelay + i * step}s`,
-          }}
+          style={{ transitionDelay: `${baseDelay + i * step}s` }}
         >
           {ch}
         </span>

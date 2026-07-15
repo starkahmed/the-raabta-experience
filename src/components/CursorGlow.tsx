@@ -49,6 +49,7 @@ export function CursorGlow() {
       raf = requestAnimationFrame(loop);
     };
 
+    document.documentElement.classList.add("has-glow");
     window.addEventListener("pointermove", onMove, { passive: true });
     document.addEventListener("pointerover", onOver, true);
     document.addEventListener("pointerout", onOut, true);
@@ -56,6 +57,7 @@ export function CursorGlow() {
 
     return () => {
       cancelAnimationFrame(raf);
+      document.documentElement.classList.remove("has-glow");
       window.removeEventListener("pointermove", onMove);
       document.removeEventListener("pointerover", onOver, true);
       document.removeEventListener("pointerout", onOut, true);

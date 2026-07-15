@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type CSSProperties } from "react";
 import archImg from "@/assets/mughal-arch.jpg";
 import heroAsset from "@/assets/hero-mosque-lanterns.jpg.asset.json";
 import nikahAsset from "@/assets/nikah-stage.jpg.asset.json";
@@ -44,7 +44,7 @@ function Invitation() {
         {/* CHAPTER 01 — Bismillah */}
         <Chapter id="bismillah">
           <div className="text-center max-w-3xl">
-            <p className="cine-fade text-cream/60 tracking-[0.5em] text-[10px] md:text-xs mb-10" style={{ "--fade-delay": "0s" } as React.CSSProperties}>
+            <p className="cine-fade text-cream/60 tracking-[0.5em] text-[10px] md:text-xs mb-10" style={{ "--fade-delay": "0s" } as CSSProperties}>
               CHAPTER 01 · IN HIS NAME
             </p>
             <p
@@ -65,7 +65,7 @@ function Invitation() {
               className="text-cream/80 tracking-[0.4em] text-xs md:text-sm font-light"
               step={0.025}
             />
-            <p className="cine-fade mt-10 text-cream/50 italic leading-relaxed" style={{ "--fade-delay": "1s" } as React.CSSProperties}>
+            <p className="cine-fade mt-10 text-cream/50 italic leading-relaxed" style={{ "--fade-delay": "1s" } as CSSProperties}>
               In the Name of Allah,<br />The Most Compassionate, The Most Merciful.
             </p>
           </div>
@@ -91,7 +91,7 @@ function Invitation() {
               baseDelay={0.4}
               data-cursor="magnetic"
             />
-            <p className="cine-fade mt-10 text-cream/50 text-xs tracking-[0.4em]" style={{ "--fade-delay": "1.4s" } as React.CSSProperties}>
+            <p className="cine-fade mt-10 text-cream/50 text-xs tracking-[0.4em]" style={{ "--fade-delay": "1.4s" } as CSSProperties}>
               SURAH AR-RUM · 30:21
             </p>
           </div>
@@ -109,7 +109,7 @@ function Invitation() {
               className="text-display text-cream text-xl md:text-2xl"
               step={0.02}
             />
-            <p className="cine-fade text-gold text-xl my-4" style={{ "--fade-delay": "0.9s" } as React.CSSProperties}>◆</p>
+            <p className="cine-fade text-gold text-xl my-4" style={{ "--fade-delay": "0.9s" } as CSSProperties}>◆</p>
             <KineticText
               text="Mr. & Mrs. Salim Saifi"
               as="p"
@@ -119,12 +119,12 @@ function Invitation() {
             />
             <p
               className="cine-fade text-script text-ember text-5xl md:text-7xl mt-14"
-              style={{ "--fade-delay": "1.6s", fontFamily: "'Pinyon Script', cursive" } as React.CSSProperties}
+              style={{ "--fade-delay": "1.6s", fontFamily: "'Pinyon Script', cursive" } as CSSProperties}
               data-cursor="magnetic"
             >
               cordially invite you
             </p>
-            <p className="cine-fade text-cream/70 mt-4 italic" style={{ "--fade-delay": "2s" } as React.CSSProperties}>
+            <p className="cine-fade text-cream/70 mt-4 italic" style={{ "--fade-delay": "2s" } as CSSProperties}>
               to grace the sacred Nikah ceremony of
             </p>
           </div>
@@ -145,7 +145,7 @@ function Invitation() {
             />
             <p
               className="cine-fade text-script text-gold text-5xl md:text-7xl my-6"
-              style={{ "--fade-delay": "0.9s", fontFamily: "'Pinyon Script', cursive" } as React.CSSProperties}
+              style={{ "--fade-delay": "0.9s", fontFamily: "'Pinyon Script', cursive" } as CSSProperties}
               data-cursor="magnetic"
             >
               &amp;
@@ -157,7 +157,7 @@ function Invitation() {
               step={0.05}
               baseDelay={1.2}
             />
-            <p className="cine-fade text-cream/60 text-script text-2xl md:text-3xl mt-10" style={{ "--fade-delay": "2s" } as React.CSSProperties}>
+            <p className="cine-fade text-cream/60 text-script text-2xl md:text-3xl mt-10" style={{ "--fade-delay": "2s" } as CSSProperties}>
               17 October 2026 · Patna
             </p>
           </div>
@@ -178,7 +178,7 @@ function Invitation() {
                 baseDelay={0.1}
                 data-cursor="magnetic"
               />
-              <div className="cine-fade mt-8 space-y-2 text-cream/85" style={{ "--fade-delay": "0.7s" } as React.CSSProperties}>
+              <div className="cine-fade mt-8 space-y-2 text-cream/85" style={{ "--fade-delay": "0.7s" } as CSSProperties}>
                 <p className="text-lg">Saturday, 17 October 2026</p>
                 <p className="text-cream/60 italic">After Namaz-e-Isha</p>
                 <div className="w-16 h-px bg-gold my-5 mx-auto md:mx-0" />
@@ -243,7 +243,7 @@ function Invitation() {
                 baseDelay={0.1}
                 data-cursor="magnetic"
               />
-              <div className="cine-fade mt-8 space-y-2 text-cream/85" style={{ "--fade-delay": "0.7s" } as React.CSSProperties}>
+              <div className="cine-fade mt-8 space-y-2 text-cream/85" style={{ "--fade-delay": "0.7s" } as CSSProperties}>
                 <p className="text-lg">Monday, 19 October 2026</p>
                 <p className="text-cream/60 italic">Evening</p>
                 <div className="w-16 h-px bg-gold my-5 mx-auto md:mx-0" />
@@ -299,7 +299,7 @@ function Invitation() {
               baseDelay={0.9}
               data-cursor="magnetic"
             />
-            <p className="cine-fade mt-10 text-cream/80 tracking-[0.4em] text-xs" style={{ "--fade-delay": "1.8s" } as React.CSSProperties}>
+            <p className="cine-fade mt-10 text-cream/80 tracking-[0.4em] text-xs" style={{ "--fade-delay": "1.8s" } as CSSProperties}>
               17.10.2026 · PATNA CITY
             </p>
           </div>

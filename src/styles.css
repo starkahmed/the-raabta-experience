@@ -194,4 +194,45 @@
 }
 
 
+/* ============ Portfolio (dark) ============ */
+@theme inline {
+  --color-pbg: hsl(0 0% 4%);
+  --color-psurface: hsl(0 0% 8%);
+  --color-ptext: hsl(0 0% 96%);
+  --color-pmuted: hsl(0 0% 53%);
+  --color-pstroke: hsl(0 0% 12%);
+  --font-body: "Inter", sans-serif;
+  --font-instrument: "Instrument Serif", serif;
+}
+
+.accent-gradient {
+  background: linear-gradient(90deg, #89AACC 0%, #4E85BF 100%);
+}
+.accent-gradient-anim {
+  background: linear-gradient(90deg, #89AACC 0%, #4E85BF 50%, #89AACC 100%);
+  background-size: 200% 200%;
+  animation: gradient-shift 6s ease infinite;
+}
+
+@keyframes scroll-down {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(200%); }
+}
+@utility animate-scroll-down {
+  animation: scroll-down 1.5s ease-in-out infinite;
+}
+
+@keyframes role-fade-in {
+  0%   { opacity: 0; transform: translateY(8px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@utility animate-role-fade-in {
+  animation: role-fade-in 0.4s ease-out both;
+}
+
+@keyframes gradient-shift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 

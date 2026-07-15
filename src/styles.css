@@ -128,6 +128,12 @@
   50%      { transform: translateX(14px); }
 }
 
+/* Sacred lattice: barely perceptible breathing pulse + slow rotation */
+@keyframes lattice-breathe {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50%      { transform: scale(1.015) rotate(0.6deg); }
+}
+
 /* Night sky: twinkle, drift, shoot */
 @keyframes twinkle {
   0%, 100% { opacity: 0.25; }

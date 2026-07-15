@@ -1,122 +1,94 @@
-import { useEffect, useMemo } from "react";
-
 /**
- * Fixed full-screen night sky rendered behind the cinematic intro and hero.
- * Pure black at top → dark navy → deep royal blue → soft warm blue at bottom.
- * Includes twinkling stars, drifting particles, and an occasional shooting star.
+ * Sacred backdrop: a fine gold Islamic geometric lattice (interlocking
+ * 8-pointed star motif) rendered at very low opacity over a deep
+ * charcoal-to-black gradient. The pattern breathes — a barely perceptible
+ * scale pulse and slow rotation — so it feels alive without ever
+ * competing with the foreground calligraphy.
  */
 export function NightSky() {
-  // Deterministic star field so SSR and client match
-  const stars = useMemo(() => {
-    const arr: { x: number; y: number; r: number; d: number; o: number }[] = [];
-    let seed = 42;
-    const rand = () => {
-      seed = (seed * 9301 + 49297) % 233280;
-      return seed / 233280;
-    };
-    for (let i = 0; i < 140; i++) {
-      arr.push({
-        x: rand() * 100,
-        y: rand() * 100,
-        r: rand() * 1.4 + 0.3,
-        d: rand() * 4 + 2,
-        o: rand() * 0.6 + 0.3,
-      });
-    }
-    return arr;
-  }, []);
-
-  const particles = useMemo(() => {
-    const arr: { x: number; y: number; d: number; delay: number }[] = [];
-    let seed = 7;
-    const rand = () => {
-      seed = (seed * 9301 + 49297) % 233280;
-      return seed / 233280;
-    };
-    for (let i = 0; i < 25; i++) {
-      arr.push({
-        x: rand() * 100,
-        y: rand() * 100,
-        d: rand() * 18 + 12,
-        delay: rand() * 10,
-      });
-    }
-    return arr;
-  }, []);
-
-  // Trigger a shooting star every ~8-12s
-  useEffect(() => {
-    const el = document.getElementById("shooting-star");
-    if (!el) return;
-    let t: ReturnType<typeof setTimeout>;
-    const shoot = () => {
-      el.style.animation = "none";
-      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-      el.offsetHeight;
-      const top = 5 + Math.random() * 40;
-      const left = 10 + Math.random() * 60;
-      el.style.top = `${top}%`;
-      el.style.left = `${left}%`;
-      el.style.animation = "shoot 1.4s ease-out forwards";
-      t = setTimeout(shoot, 7000 + Math.random() * 6000);
-    };
-    t = setTimeout(shoot, 3000);
-    return () => clearTimeout(t);
-  }, []);
-
   return (
     <div
       aria-hidden
       className="fixed inset-0 -z-10 overflow-hidden"
       style={{
         background:
-          "linear-gradient(180deg, #000000 0%, #030616 22%, #050c2a 48%, #0a1746 72%, #172a5c 100%)",
+          "radial-gradient(ellipse at 50% 40%, #14100c 0%, #0a0806 55%, #030202 100%)",
       }}
     >
-      {/* Stars */}
-      <svg className="absolute inset-0 h-full w-full" preserveAspectRatio="none">
-        {stars.map((s, i) => (
-          <circle
-            key={i}
-            cx={`${s.x}%`}
-            cy={`${s.y}%`}
-            r={s.r}
-            fill="white"
-            opacity={s.o}
-            style={{
-              animation: `twinkle ${s.d}s ease-in-out ${(i % 7) * 0.4}s infinite`,
-            }}
-          />
-        ))}
-      </svg>
-
-      {/* Floating particles */}
-      {particles.map((p, i) => (
-        <div
-          key={i}
-          className="absolute rounded-full"
-          style={{
-            left: `${p.x}%`,
-            top: `${p.y}%`,
-            width: 2,
-            height: 2,
-            background: "oklch(0.85 0.12 65 / 0.5)",
-            filter: "blur(1px)",
-            animation: `particle-drift ${p.d}s ease-in-out ${p.delay}s infinite`,
-          }}
-        />
-      ))}
-
-      {/* Shooting star */}
+      {/* Warm gold glow behind the calligraphy, illuminating the lattice */}
       <div
-        id="shooting-star"
-        className="absolute h-[2px] w-24 rounded-full"
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+        style={{
+          width: "70vmin",
+          height: "70vmin",
+          background:
+            "radial-gradient(circle, oklch(0.78 0.15 70 / 0.28) 0%, oklch(0.65 0.13 55 / 0.14) 35%, transparent 70%)",
+          filter: "blur(20px)",
+        }}
+      />
+
+      {/* Geometric lattice — SVG pattern of interlocking 8-pointed stars */}
+      <div
+        className="absolute inset-0"
+        style={{
+          animation: "lattice-breathe 14s ease-in-out infinite",
+          transformOrigin: "center",
+          willChange: "transform",
+        }}
+      >
+        <svg
+          className="absolute inset-0 h-full w-full"
+          xmlns="http://www.w3.org/2000/svg"
+          style={{ opacity: 0.1 }}
+        >
+          <defs>
+            <pattern
+              id="islamic-star"
+              x="0"
+              y="0"
+              width="120"
+              height="120"
+              patternUnits="userSpaceOnUse"
+              patternTransform="rotate(0)"
+            >
+              {/* Interlocking 8-pointed star (rub el hizb) built from two rotated squares */}
+              <g
+                fill="none"
+                stroke="oklch(0.82 0.14 75)"
+                strokeWidth="0.7"
+                strokeLinejoin="round"
+              >
+                <rect x="30" y="30" width="60" height="60" />
+                <rect
+                  x="30"
+                  y="30"
+                  width="60"
+                  height="60"
+                  transform="rotate(45 60 60)"
+                />
+                {/* Inner octagon accent */}
+                <polygon
+                  points="60,42 78,50 86,68 78,86 60,94 42,86 34,68 42,50"
+                  strokeWidth="0.5"
+                />
+                {/* Connecting lines to tile edges */}
+                <line x1="0" y1="60" x2="30" y2="60" />
+                <line x1="90" y1="60" x2="120" y2="60" />
+                <line x1="60" y1="0" x2="60" y2="30" />
+                <line x1="60" y1="90" x2="60" y2="120" />
+              </g>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#islamic-star)" />
+        </svg>
+      </div>
+
+      {/* Vignette to deepen the edges */}
+      <div
+        className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "linear-gradient(90deg, transparent, rgba(255,255,255,0.95), transparent)",
-          boxShadow: "0 0 8px rgba(255,255,255,0.8)",
-          transform: "rotate(-20deg)",
-          opacity: 0,
+            "radial-gradient(ellipse at center, transparent 45%, rgba(0,0,0,0.55) 100%)",
         }}
       />
     </div>

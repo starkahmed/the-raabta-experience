@@ -119,7 +119,7 @@ function Invitation() {
             />
             <p
               className="cine-fade text-script text-ember text-5xl md:text-7xl mt-14"
-              style={{ ["--fade-delay" as string]: "1.6s", fontFamily: "'Pinyon Script', cursive" }}
+              style={{ "--fade-delay": "1.6s", fontFamily: "'Pinyon Script', cursive" } as React.CSSProperties}
               data-cursor="magnetic"
             >
               cordially invite you
@@ -145,7 +145,7 @@ function Invitation() {
             />
             <p
               className="cine-fade text-script text-gold text-5xl md:text-7xl my-6"
-              style={{ ["--fade-delay" as string]: "0.9s", fontFamily: "'Pinyon Script', cursive" }}
+              style={{ "--fade-delay": "0.9s", fontFamily: "'Pinyon Script', cursive" } as React.CSSProperties}
               data-cursor="magnetic"
             >
               &amp;

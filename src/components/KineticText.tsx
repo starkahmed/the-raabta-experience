@@ -52,5 +52,5 @@ export function KineticText({
     );
     if (wi < words.length - 1) nodes.push(<span key={`s-${wi}`}>&nbsp;</span>);
   });
-  return <As className={className} style={style}>{nodes}</As>;
+  return <As className={className} style={style} {...rest}>{nodes}</As>;
 }

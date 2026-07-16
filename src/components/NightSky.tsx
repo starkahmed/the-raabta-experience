@@ -12,7 +12,7 @@ export function NightSky() {
       className="fixed inset-0 -z-10 overflow-hidden"
       style={{
         background:
-          "radial-gradient(ellipse 90% 70% at 50% 35%, #1c150e 0%, #0d0906 45%, #050302 100%)",
+          "radial-gradient(ellipse 95% 75% at 50% 35%, #f7ecd9 0%, #efdcbe 40%, #e4c89a 100%)",
       }}
     >
       {/* Warm gold bloom */}

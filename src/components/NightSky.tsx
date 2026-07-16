@@ -118,7 +118,7 @@ function LatticeSvg({
         >
           <g
             fill="none"
-            stroke="oklch(0.52 0.14 60)"
+            stroke="oklch(0.84 0.14 78)"
             strokeWidth={stroke}
             strokeLinejoin="round"
           >

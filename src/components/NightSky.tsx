@@ -1,9 +1,9 @@
 /**
- * Sacred backdrop: a fine gold Islamic geometric lattice (interlocking
- * 8-pointed star motif) rendered at very low opacity over a deep
- * charcoal-to-black gradient. The pattern breathes — a barely perceptible
- * scale pulse and slow rotation — so it feels alive without ever
- * competing with the foreground calligraphy.
+ * Sacred backdrop: layered warm-black gradient with a fine gold Islamic
+ * geometric lattice (interlocking 8-pointed star motif). Two lattice
+ * layers at different scales drift in opposite directions to create depth
+ * without noise. A soft warm bloom sits behind the calligraphy so it feels
+ * illuminated from within.
  */
 export function NightSky() {
   return (
@@ -12,85 +12,133 @@ export function NightSky() {
       className="fixed inset-0 -z-10 overflow-hidden"
       style={{
         background:
-          "radial-gradient(ellipse at 50% 40%, #14100c 0%, #0a0806 55%, #030202 100%)",
+          "radial-gradient(ellipse 90% 70% at 50% 35%, #1c150e 0%, #0d0906 45%, #050302 100%)",
       }}
     >
-      {/* Warm gold glow behind the calligraphy, illuminating the lattice */}
+      {/* Warm gold bloom */}
       <div
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+        className="absolute left-1/2 top-[42%] -translate-x-1/2 -translate-y-1/2"
         style={{
-          width: "70vmin",
-          height: "70vmin",
+          width: "85vmin",
+          height: "85vmin",
           background:
-            "radial-gradient(circle, oklch(0.78 0.15 70 / 0.28) 0%, oklch(0.65 0.13 55 / 0.14) 35%, transparent 70%)",
-          filter: "blur(20px)",
+            "radial-gradient(circle, oklch(0.82 0.16 72 / 0.32) 0%, oklch(0.65 0.14 55 / 0.14) 38%, transparent 72%)",
+          filter: "blur(24px)",
         }}
       />
 
-      {/* Geometric lattice — SVG pattern of interlocking 8-pointed stars */}
+      {/* Secondary ember glow, offset */}
+      <div
+        className="absolute left-[15%] top-[70%]"
+        style={{
+          width: "55vmin",
+          height: "55vmin",
+          background:
+            "radial-gradient(circle, oklch(0.55 0.18 40 / 0.22) 0%, transparent 65%)",
+          filter: "blur(30px)",
+        }}
+      />
+
+      {/* Lattice layer — large, slow breathe */}
       <div
         className="absolute inset-0"
         style={{
-          animation: "lattice-breathe 14s ease-in-out infinite",
+          animation: "lattice-breathe 22s ease-in-out infinite",
           transformOrigin: "center",
           willChange: "transform",
         }}
       >
-        <svg
-          className="absolute inset-0 h-full w-full"
-          xmlns="http://www.w3.org/2000/svg"
-          style={{ opacity: 0.1 }}
-        >
-          <defs>
-            <pattern
-              id="islamic-star"
-              x="0"
-              y="0"
-              width="120"
-              height="120"
-              patternUnits="userSpaceOnUse"
-              patternTransform="rotate(0)"
-            >
-              {/* Interlocking 8-pointed star (rub el hizb) built from two rotated squares */}
-              <g
-                fill="none"
-                stroke="oklch(0.82 0.14 75)"
-                strokeWidth="0.7"
-                strokeLinejoin="round"
-              >
-                <rect x="30" y="30" width="60" height="60" />
-                <rect
-                  x="30"
-                  y="30"
-                  width="60"
-                  height="60"
-                  transform="rotate(45 60 60)"
-                />
-                {/* Inner octagon accent */}
-                <polygon
-                  points="60,42 78,50 86,68 78,86 60,94 42,86 34,68 42,50"
-                  strokeWidth="0.5"
-                />
-                {/* Connecting lines to tile edges */}
-                <line x1="0" y1="60" x2="30" y2="60" />
-                <line x1="90" y1="60" x2="120" y2="60" />
-                <line x1="60" y1="0" x2="60" y2="30" />
-                <line x1="60" y1="90" x2="60" y2="120" />
-              </g>
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#islamic-star)" />
-        </svg>
+        <LatticeSvg tile={160} opacity={0.14} stroke={0.6} />
       </div>
 
-      {/* Vignette to deepen the edges */}
+      {/* Lattice layer — smaller, counter-drift */}
+      <div
+        className="absolute inset-0"
+        style={{
+          animation: "lattice-breathe 34s ease-in-out infinite reverse",
+          transformOrigin: "center",
+          willChange: "transform",
+          mixBlendMode: "screen",
+          opacity: 0.55,
+        }}
+      >
+        <LatticeSvg tile={80} opacity={0.09} stroke={0.4} />
+      </div>
+
+      {/* Grain */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          opacity: 0.06,
+          mixBlendMode: "overlay",
+          backgroundImage:
+            "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.8  0 0 0 0 0.65  0 0 0 0 0.35  0 0 0 1 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>\")",
+        }}
+      />
+
+      {/* Vignette */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse at center, transparent 45%, rgba(0,0,0,0.55) 100%)",
+            "radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.65) 100%)",
         }}
       />
     </div>
+  );
+}
+
+function LatticeSvg({
+  tile,
+  opacity,
+  stroke,
+}: {
+  tile: number;
+  opacity: number;
+  stroke: number;
+}) {
+  const id = `star-${tile}`;
+  const c = tile / 2;
+  const inset = tile * 0.25;
+  const size = tile - inset * 2;
+  return (
+    <svg
+      className="absolute inset-0 h-full w-full"
+      xmlns="http://www.w3.org/2000/svg"
+      style={{ opacity }}
+    >
+      <defs>
+        <pattern
+          id={id}
+          x="0"
+          y="0"
+          width={tile}
+          height={tile}
+          patternUnits="userSpaceOnUse"
+        >
+          <g
+            fill="none"
+            stroke="oklch(0.84 0.14 78)"
+            strokeWidth={stroke}
+            strokeLinejoin="round"
+          >
+            <rect x={inset} y={inset} width={size} height={size} />
+            <rect
+              x={inset}
+              y={inset}
+              width={size}
+              height={size}
+              transform={`rotate(45 ${c} ${c})`}
+            />
+            <circle cx={c} cy={c} r={size * 0.28} strokeWidth={stroke * 0.7} />
+            <line x1="0" y1={c} x2={inset} y2={c} />
+            <line x1={tile - inset} y1={c} x2={tile} y2={c} />
+            <line x1={c} y1="0" x2={c} y2={inset} />
+            <line x1={c} y1={tile - inset} x2={c} y2={tile} />
+          </g>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill={`url(#${id})`} />
+    </svg>
   );
 }

@@ -48,7 +48,7 @@ export function NightSky() {
           willChange: "transform",
         }}
       >
-        <LatticeSvg tile={160} opacity={0.14} stroke={0.6} />
+        <LatticeSvg tile={160} opacity={0.18} stroke={0.7} />
       </div>
 
       {/* Lattice layer — smaller, counter-drift */}
@@ -58,21 +58,21 @@ export function NightSky() {
           animation: "lattice-breathe 34s ease-in-out infinite reverse",
           transformOrigin: "center",
           willChange: "transform",
-          mixBlendMode: "screen",
-          opacity: 0.55,
+          mixBlendMode: "multiply",
+          opacity: 0.5,
         }}
       >
-        <LatticeSvg tile={80} opacity={0.09} stroke={0.4} />
+        <LatticeSvg tile={80} opacity={0.12} stroke={0.5} />
       </div>
 
       {/* Grain */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          opacity: 0.06,
-          mixBlendMode: "overlay",
+          opacity: 0.05,
+          mixBlendMode: "multiply",
           backgroundImage:
-            "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.8  0 0 0 0 0.65  0 0 0 0 0.35  0 0 0 1 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>\")",
+            "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.55  0 0 0 0 0.42  0 0 0 0 0.22  0 0 0 1 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>\")",
         }}
       />
 
@@ -81,7 +81,7 @@ export function NightSky() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.65) 100%)",
+            "radial-gradient(ellipse at center, transparent 55%, rgba(120,80,30,0.22) 100%)",
         }}
       />
     </div>

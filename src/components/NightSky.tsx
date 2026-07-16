@@ -22,7 +22,7 @@ export function NightSky() {
           width: "85vmin",
           height: "85vmin",
           background:
-            "radial-gradient(circle, oklch(0.82 0.16 72 / 0.32) 0%, oklch(0.65 0.14 55 / 0.14) 38%, transparent 72%)",
+            "radial-gradient(circle, oklch(0.88 0.14 75 / 0.35) 0%, oklch(0.78 0.12 60 / 0.15) 40%, transparent 72%)",
           filter: "blur(24px)",
         }}
       />

@@ -34,7 +34,7 @@ export function NightSky() {
           width: "55vmin",
           height: "55vmin",
           background:
-            "radial-gradient(circle, oklch(0.55 0.18 40 / 0.22) 0%, transparent 65%)",
+            "radial-gradient(circle, oklch(0.72 0.16 40 / 0.18) 0%, transparent 65%)",
           filter: "blur(30px)",
         }}
       />

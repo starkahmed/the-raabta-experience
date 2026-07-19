@@ -33,7 +33,7 @@ function useCountdown(target: Date) {
 const pad = (n: number) => n.toString().padStart(2, "0");
 
 function Invitation() {
-  const { d, h, m, s, ready } = useCountdown(new Date("2026-10-17T19:30:00+05:30"));
+  const { d, h, m, s, ready } = useCountdown(new Date("2026-10-26T19:30:00+05:30"));
 
   return (
     <>

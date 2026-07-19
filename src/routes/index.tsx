@@ -159,6 +159,7 @@ function Invitation() {
             />
             <p className="cine-fade text-cream/60 text-script text-2xl md:text-3xl mt-10" style={{ "--fade-delay": "2s" } as CSSProperties}>
               17 October 2026 · Patna
+
             </p>
           </div>
         </Chapter>

@@ -1,6 +1,6 @@
 import { defineTool } from "@lovable.dev/mcp-js";
 
-const targetIso = "2026-10-17T19:30:00+05:30";
+const targetIso = "2026-10-26T19:30:00+05:30";
 
 export default defineTool({
   name: "get_countdown",

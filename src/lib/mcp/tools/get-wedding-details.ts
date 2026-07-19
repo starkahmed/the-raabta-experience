@@ -5,8 +5,8 @@ const details = {
     groom: { name: "Ahmed Raza Shaikh", parents: "Mr. & Mrs. Firoz-Uddin Shaikh" },
     bride: { name: "Nazziya", parents: "Mr. & Mrs. Salim Saifi" },
   },
-  primaryDate: "17 October 2026",
-  city: "Patna",
+  primaryDate: "26 October 2026",
+  city: "Pune",
   invitationUrl: "https://www.missingpieceinvites.com/demos/raabta",
 };
 

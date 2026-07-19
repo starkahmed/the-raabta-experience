@@ -3,10 +3,10 @@ import { defineTool } from "@lovable.dev/mcp-js";
 const events = [
   {
     title: "Nikah",
-    date: "17 October 2026",
-    day: "Saturday",
+    date: "26 October 2026",
+    day: "Monday",
     time: "After Namaz-e-Isha",
-    venue: "Meetan Darbar, Patna City",
+    venue: "Raaga Imperio, Survey No. 169, Aundh – Ravet BRTS Rd, near Tulja Bhavani Vajan Kata, Tathawade, Pune, Maharashtra 411033",
   },
   {
     title: "Walima",

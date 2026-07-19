@@ -33,7 +33,7 @@ function useCountdown(target: Date) {
 const pad = (n: number) => n.toString().padStart(2, "0");
 
 function Invitation() {
-  const { d, h, m, s, ready } = useCountdown(new Date("2026-10-17T19:30:00+05:30"));
+  const { d, h, m, s, ready } = useCountdown(new Date("2026-10-26T19:30:00+05:30"));
 
   return (
     <>
@@ -158,7 +158,8 @@ function Invitation() {
               baseDelay={1.2}
             />
             <p className="cine-fade text-cream/60 text-script text-2xl md:text-3xl mt-10" style={{ "--fade-delay": "2s" } as CSSProperties}>
-              17 October 2026 · Patna
+              26 October 2026 · Pune
+
             </p>
           </div>
         </Chapter>
@@ -179,17 +180,17 @@ function Invitation() {
                 data-cursor="magnetic"
               />
               <div className="cine-fade mt-8 space-y-2 text-cream/85" style={{ "--fade-delay": "0.7s" } as CSSProperties}>
-                <p className="text-lg">Saturday, 17 October 2026</p>
+                <p className="text-lg">Monday, 26 October 2026</p>
                 <p className="text-cream/60 italic">After Namaz-e-Isha</p>
                 <div className="w-16 h-px bg-gold my-5 mx-auto md:mx-0" />
-                <p className="text-display text-2xl">Meetan Darbar</p>
+                <p className="text-display text-2xl">Raaga Imperio</p>
                 <p className="text-cream/60 text-sm leading-relaxed">
-                  Bank of Ganga River<br />
-                  Khanqah, Munemia, Mitan Ghat<br />
-                  Patna City — 800008
+                  Survey No. 169, Aundh – Ravet BRTS Rd<br />
+                  near Tulja Bhavani Vajan Kata<br />
+                  Tathawade, Pune, Maharashtra 411033
                 </p>
                 <a
-                  href="https://www.google.com/maps/search/?api=1&query=Meetan+Darbar+Mitan+Ghat+Patna+City"
+                  href="https://www.google.com/maps/search/?api=1&query=Raaga+Imperio+Tathawade+Pune+411033"
                   target="_blank"
                   rel="noopener noreferrer"
                   data-cursor="magnetic"
@@ -300,7 +301,7 @@ function Invitation() {
               data-cursor="magnetic"
             />
             <p className="cine-fade mt-10 text-cream/80 tracking-[0.4em] text-xs" style={{ "--fade-delay": "1.8s" } as CSSProperties}>
-              17.10.2026 · PATNA CITY
+              26.10.2026 · PUNE
             </p>
           </div>
         </Chapter>
@@ -384,7 +385,7 @@ function Invitation() {
               May Allah (SWT) bless this union with endless love, mercy, happiness and barakah. Ameen.
             </p>
             <p className="text-script text-2xl text-ember mt-10">Ahmed Raza &amp; Nazziya</p>
-            <p className="mt-1 text-sm text-muted-foreground">17 October 2026 · Patna City</p>
+            <p className="mt-1 text-sm text-muted-foreground">26 October 2026 · Pune</p>
           </footer>
         </div>
       </main>

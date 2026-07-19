@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "sdk_version": "0.23.0",
+  "path": "/mcp",
+  "auth": {
+    "type": "none"
+  },
+  "mcp": {
+    "server": {
+      "name": "ahmed-nazziya-wedding-mcp",
+      "version": "0.1.0",
+      "title": "Ahmed & Nazziya Wedding MCP"
+    },
+    "tools": [
+      {
+        "name": "get_wedding_details",
+        "title": "Get wedding details",
+        "description": "Return the couple, primary wedding date, and city for Ahmed Raza & Nazziya's Nikah.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_events",
+        "title": "List wedding events",
+        "description": "List the scheduled Nikah and Walima events with date, time, and venue.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_rsvp_info",
+        "title": "Get RSVP information",
+        "description": "Return the public RSVP message and guidance for confirming attendance.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_countdown",
+        "title": "Get countdown to Nikah",
+        "description": "Return the number of days, hours, and minutes remaining until the Nikah ceremony.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": false,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}

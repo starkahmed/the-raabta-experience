@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState, type CSSProperties } from "react";
 import archImg from "@/assets/mughal-arch.jpg";
-import heroAsset from "@/assets/hero-mosque-lanterns.jpg.asset.json";
+
 import nikahAsset from "@/assets/nikah-stage-new.png.asset.json";
 import walimaAsset from "@/assets/walima-stage.jpg.asset.json";
 import { NightSky } from "@/components/NightSky";
@@ -9,6 +9,7 @@ import { SmoothScroll } from "@/components/SmoothScroll";
 import { CursorGlow } from "@/components/CursorGlow";
 import { Chapter } from "@/components/Chapter";
 import { KineticText } from "@/components/KineticText";
+import { HeroParallax3D } from "@/components/HeroParallax3D";
 
 export const Route = createFileRoute("/")({
   component: Invitation,
@@ -269,18 +270,8 @@ function Invitation() {
 
         {/* CHAPTER 07 — Cinematic mosque reveal (hero) */}
         <Chapter id="mosque" className="overflow-hidden">
-          <div className="absolute inset-0">
-            <div className="cine-image absolute inset-0">
-              <img
-                src={heroAsset.url}
-                alt="Sky lanterns floating above a Mughal palace at dusk"
-                width={1536}
-                height={1920}
-                className="absolute inset-0 h-full w-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black/70" />
-            </div>
-          </div>
+          <HeroParallax3D />
+
           <div className="relative z-10 text-center px-6">
             <p className="cine-fade text-cream/70 tracking-[0.5em] text-[10px] md:text-xs mb-6">
               CHAPTER 07 · SAVE THE DATE

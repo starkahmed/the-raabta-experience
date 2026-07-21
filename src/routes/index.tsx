@@ -9,6 +9,7 @@ import { SmoothScroll } from "@/components/SmoothScroll";
 import { CursorGlow } from "@/components/CursorGlow";
 import { Chapter } from "@/components/Chapter";
 import { KineticText } from "@/components/KineticText";
+import { HeroParallax3D } from "@/components/HeroParallax3D";
 
 export const Route = createFileRoute("/")({
   component: Invitation,

@@ -45,7 +45,7 @@ function Invitation() {
       <main className="text-cream">
         {/* CHAPTER 01 — Bismillah (3D landing) */}
         <Chapter id="bismillah" className="overflow-hidden">
-          <BismillahHero3D />
+          <SkyDriftHero />
         </Chapter>
 
 

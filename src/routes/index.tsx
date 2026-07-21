@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState, type CSSProperties } from "react";
 import archImg from "@/assets/mughal-arch.jpg";
-import heroAsset from "@/assets/hero-mosque-lanterns.jpg.asset.json";
+
 import nikahAsset from "@/assets/nikah-stage-new.png.asset.json";
 import walimaAsset from "@/assets/walima-stage.jpg.asset.json";
 import { NightSky } from "@/components/NightSky";

@@ -43,35 +43,11 @@ function Invitation() {
       <NightSky />
       <CursorGlow />
       <main className="text-cream">
-        {/* CHAPTER 01 — Bismillah */}
-        <Chapter id="bismillah">
-          <div className="text-center max-w-3xl">
-            <p className="cine-fade text-cream/60 tracking-[0.5em] text-[10px] md:text-xs mb-10" style={{ "--fade-delay": "0s" } as CSSProperties}>
-              CHAPTER 01 · IN HIS NAME
-            </p>
-            <p
-              className="text-5xl md:text-7xl mb-10 text-cream"
-              dir="rtl"
-              lang="ar"
-              data-cursor="magnetic"
-              style={{
-                fontFamily: "'Amiri', serif",
-                textShadow: "0 0 40px oklch(0.85 0.15 65 / 0.5), 0 0 80px oklch(0.85 0.15 65 / 0.3)",
-              }}
-            >
-              بِسْمِ اللَّهِ الرَّحْمٰنِ الرَّحِيْم
-            </p>
-            <KineticText
-              text="BISMILLAHIR RAHMANIR RAHIM"
-              as="p"
-              className="text-cream/80 tracking-[0.4em] text-xs md:text-sm font-light"
-              step={0.025}
-            />
-            <p className="cine-fade mt-10 text-cream/50 italic leading-relaxed" style={{ "--fade-delay": "1s" } as CSSProperties}>
-              In the Name of Allah,<br />The Most Compassionate, The Most Merciful.
-            </p>
-          </div>
+        {/* CHAPTER 01 — Bismillah (3D landing) */}
+        <Chapter id="bismillah" className="overflow-hidden">
+          <BismillahHero3D />
         </Chapter>
+
 
         {/* CHAPTER 02 — Verse */}
         <Chapter id="verse">

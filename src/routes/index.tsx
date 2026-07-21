@@ -270,18 +270,8 @@ function Invitation() {
 
         {/* CHAPTER 07 — Cinematic mosque reveal (hero) */}
         <Chapter id="mosque" className="overflow-hidden">
-          <div className="absolute inset-0">
-            <div className="cine-image absolute inset-0">
-              <img
-                src={heroAsset.url}
-                alt="Sky lanterns floating above a Mughal palace at dusk"
-                width={1536}
-                height={1920}
-                className="absolute inset-0 h-full w-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black/70" />
-            </div>
-          </div>
+          <HeroParallax3D />
+
           <div className="relative z-10 text-center px-6">
             <p className="cine-fade text-cream/70 tracking-[0.5em] text-[10px] md:text-xs mb-6">
               CHAPTER 07 · SAVE THE DATE

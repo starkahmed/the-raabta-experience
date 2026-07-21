@@ -9,7 +9,7 @@ import { SmoothScroll } from "@/components/SmoothScroll";
 import { CursorGlow } from "@/components/CursorGlow";
 import { Chapter } from "@/components/Chapter";
 import { KineticText } from "@/components/KineticText";
-import { BismillahHero3D } from "@/components/BismillahHero3D";
+import { SkyDriftHero } from "@/components/SkyDriftHero";
 import { HeroParallax3D } from "@/components/HeroParallax3D";
 
 export const Route = createFileRoute("/")({
@@ -45,7 +45,7 @@ function Invitation() {
       <main className="text-cream">
         {/* CHAPTER 01 — Bismillah (3D landing) */}
         <Chapter id="bismillah" className="overflow-hidden">
-          <BismillahHero3D />
+          <SkyDriftHero />
         </Chapter>
 
 

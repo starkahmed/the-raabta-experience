@@ -9,8 +9,8 @@ import { SmoothScroll } from "@/components/SmoothScroll";
 import { CursorGlow } from "@/components/CursorGlow";
 import { Chapter } from "@/components/Chapter";
 import { KineticText } from "@/components/KineticText";
-import { SkyDriftHero } from "@/components/SkyDriftHero";
-import { HeroParallax3D } from "@/components/HeroParallax3D";
+import { BismillahScene } from "@/components/BismillahScene";
+import { MosqueScene } from "@/components/MosqueScene";
 
 export const Route = createFileRoute("/")({
   component: Invitation,
@@ -44,18 +44,15 @@ function Invitation() {
       <NightSky />
       <CursorGlow />
       <main className="text-cream">
-        {/* CHAPTER 01 — Bismillah (3D landing) */}
+        {/* Bismillah (3D landing) */}
         <Chapter id="bismillah" className="overflow-hidden">
-          <SkyDriftHero />
+          <BismillahScene />
         </Chapter>
 
 
-        {/* CHAPTER 02 — Verse */}
+        {/* Verse */}
         <Chapter id="verse">
           <div className="text-center max-w-3xl">
-            <p className="cine-fade text-gold/85 tracking-[0.3em] text-[10px] md:text-xs mb-12">
-              A SIGN FROM HIM
-            </p>
             <KineticText
               text="And He placed between you"
               as="p"
@@ -76,12 +73,9 @@ function Invitation() {
           </div>
         </Chapter>
 
-        {/* CHAPTER 03 — Invitation */}
+        {/* Invitation */}
         <Chapter id="invitation">
           <div className="text-center max-w-3xl">
-            <p className="cine-fade text-cream/85 tracking-[0.3em] text-[10px] md:text-xs mb-12">
-              TOGETHER WITH OUR FAMILIES
-            </p>
             <KineticText
               text="Mr. & Mrs. Firoz-Uddin Shaikh"
               as="p"
@@ -109,12 +103,9 @@ function Invitation() {
           </div>
         </Chapter>
 
-        {/* CHAPTER 04 — Bride & Groom */}
+        {/* Bride & Groom */}
         <Chapter id="couple">
           <div className="text-center">
-            <p className="cine-fade text-cream/85 tracking-[0.3em] text-[10px] md:text-xs mb-14">
-              THE COUPLE
-            </p>
             <KineticText
               text="AHMED RAZA"
               as="h1"
@@ -143,13 +134,10 @@ function Invitation() {
           </div>
         </Chapter>
 
-        {/* CHAPTER 05 — Nikah */}
+        {/* Nikah */}
         <Chapter id="nikah">
           <div className="max-w-6xl w-full grid md:grid-cols-2 gap-14 items-center">
             <div className="relative order-2 md:order-1 text-center md:text-left">
-              <p className="cine-fade text-gold/85 tracking-[0.3em] text-[10px] md:text-xs mb-6">
-                THE CEREMONY
-              </p>
               <KineticText
                 text="Nikah"
                 as="h2"
@@ -196,7 +184,7 @@ function Invitation() {
           </div>
         </Chapter>
 
-        {/* CHAPTER 06 — Walima */}
+        {/* Walima */}
         <Chapter id="walima">
           <div className="max-w-6xl w-full grid md:grid-cols-2 gap-14 items-center">
             <div className="relative">
@@ -213,9 +201,6 @@ function Invitation() {
               </div>
             </div>
             <div className="text-center md:text-left">
-              <p className="cine-fade text-gold/85 tracking-[0.3em] text-[10px] md:text-xs mb-6">
-                THE RECEPTION
-              </p>
               <KineticText
                 text="Walima"
                 as="h2"
@@ -248,14 +233,11 @@ function Invitation() {
           </div>
         </Chapter>
 
-        {/* CHAPTER 07 — Cinematic mosque reveal (hero) */}
+        {/* Cinematic mosque reveal (hero) */}
         <Chapter id="mosque" className="overflow-hidden">
-          <HeroParallax3D />
+          <MosqueScene />
 
           <div className="relative z-10 text-center px-6">
-            <p className="cine-fade text-cream/85 tracking-[0.3em] text-[10px] md:text-xs mb-6">
-              SAVE THE DATE
-            </p>
             <KineticText
               text="Under sacred skies"
               as="p"
@@ -277,8 +259,19 @@ function Invitation() {
           </div>
         </Chapter>
 
+        {/* Dark-to-cream blend */}
+        <div
+          aria-hidden
+          className="relative h-40 md:h-56 w-full"
+          style={{
+            background:
+              "linear-gradient(180deg, transparent 0%, oklch(0.55 0.10 60 / 0.35) 45%, var(--color-cream) 100%)",
+          }}
+        />
+
         {/* Everything below sits on cream */}
         <div className="relative bg-cream text-ink">
+
           {/* RSVP */}
           <section className="relative overflow-hidden">
             <img
@@ -335,9 +328,12 @@ function Invitation() {
           </section>
 
           {/* COUNTDOWN */}
-          <section className="relative py-24 md:py-32 px-6 overflow-hidden" style={{ background: "linear-gradient(180deg, oklch(0.38 0.08 250) 0%, oklch(0.55 0.12 40) 100%)" }}>
-            <div className="max-w-4xl mx-auto text-center text-cream">
-              <p className="text-script text-4xl mb-2">The countdown</p>
+          <section
+            className="relative py-24 md:py-32 px-6 overflow-hidden"
+            style={{ background: "linear-gradient(180deg, oklch(0.90 0.06 78) 0%, var(--color-cream) 100%)" }}
+          >
+            <div className="max-w-4xl mx-auto text-center text-ink">
+              <p className="text-script text-4xl text-ember mb-2">The countdown</p>
               <h2 className="text-display text-5xl md:text-6xl mb-12 tracking-wide">to our Nikah</h2>
               <div className="grid grid-cols-4 gap-3 md:gap-8 max-w-2xl mx-auto">
                 {[
@@ -346,16 +342,17 @@ function Invitation() {
                   { v: m, l: "Minutes" },
                   { v: s, l: "Seconds" },
                 ].map((u) => (
-                  <div key={u.l} className="rounded-2xl bg-cream/10 backdrop-blur border border-cream/20 p-4 md:p-6">
+                  <div key={u.l} className="rounded-2xl bg-cream/70 backdrop-blur border border-gold/40 p-4 md:p-6 shadow-sm">
                     <div className="text-display text-4xl md:text-6xl" suppressHydrationWarning>
                       {ready ? pad(u.v) : "--"}
                     </div>
-                    <div className="text-xs md:text-sm tracking-widest-plus mt-2 opacity-80">{u.l.toUpperCase()}</div>
+                    <div className="text-xs md:text-sm tracking-widest-plus mt-2 text-muted-foreground">{u.l.toUpperCase()}</div>
                   </div>
                 ))}
               </div>
             </div>
           </section>
+
 
           {/* FOOTER */}
           <footer className="py-20 px-6 text-center bg-cream">

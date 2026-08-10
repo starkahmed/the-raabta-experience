@@ -36,6 +36,7 @@ const pad = (n: number) => n.toString().padStart(2, "0");
 
 function Invitation() {
   const { d, h, m, s, ready } = useCountdown(new Date("2026-10-26T19:30:00+05:30"));
+  const [rsvpOpen, setRsvpOpen] = useState(false);
 
   return (
     <>
@@ -161,14 +162,14 @@ function Invitation() {
                 <p className="text-lg">Monday, 26 October 2026</p>
                 <p className="text-cream/60 italic">After Namaz-e-Isha</p>
                 <div className="w-16 h-px bg-gold my-5 mx-auto md:mx-0" />
-                <p className="text-display text-2xl">Raaga Imperio</p>
+                <p className="text-display text-2xl">Raaga Palace</p>
                 <p className="text-cream/60 text-sm leading-relaxed">
-                  Survey No. 169, Aundh – Ravet BRTS Rd<br />
-                  near Tulja Bhavani Vajan Kata<br />
-                  Tathawade, Pune, Maharashtra 411033
+                  Mother Teresa Flyover, near Nathu Nadhe Corner<br />
+                  Vijay Nagar, Kalewadi, Pimpri-Chinchwad<br />
+                  Pune, Maharashtra 411017
                 </p>
                 <a
-                  href="https://www.google.com/maps/search/?api=1&query=Raaga+Imperio+Tathawade+Pune+411033"
+                  href="https://www.google.com/maps/search/?api=1&query=Raaga+Palace+Vijay+Nagar+Kalewadi+Pimpri-Chinchwad+Pune+411017"
                   target="_blank"
                   rel="noopener noreferrer"
                   data-cursor="magnetic"
@@ -176,6 +177,7 @@ function Invitation() {
                 >
                   SEE THE ROUTE
                 </a>
+
               </div>
             </div>
             <div className="order-1 md:order-2 relative">
@@ -223,16 +225,16 @@ function Invitation() {
                 data-cursor="magnetic"
               />
               <div className="cine-fade mt-8 space-y-2 text-cream/85" style={{ "--fade-delay": "0.7s" } as CSSProperties}>
-                <p className="text-lg">Monday, 19 October 2026</p>
+                <p className="text-lg">Wednesday, 28 October 2026</p>
                 <p className="text-cream/60 italic">Evening</p>
                 <div className="w-16 h-px bg-gold my-5 mx-auto md:mx-0" />
-                <p className="text-display text-2xl">Raga Imperio</p>
+                <p className="text-display text-2xl">MDS Banquets &amp; Lawns</p>
                 <p className="text-cream/60 text-sm leading-relaxed">
-                  Thathwade<br />
-                  Pune, Maharashtra
+                  Dadasaheb Sahasrabudhe Rd, Kiwale, Ravet<br />
+                  Pimpri-Chinchwad, Maharashtra 412101
                 </p>
                 <a
-                  href="https://www.google.com/maps/search/?api=1&query=Raga+Imperio+Thathwade+Pune"
+                  href="https://www.google.com/maps/search/?api=1&query=MDS+Banquets+%26+Lawns+Kiwale+Ravet+Pimpri-Chinchwad+412101"
                   target="_blank"
                   rel="noopener noreferrer"
                   data-cursor="magnetic"
@@ -240,6 +242,7 @@ function Invitation() {
                 >
                   SEE THE ROUTE
                 </a>
+
               </div>
             </div>
           </div>
@@ -293,9 +296,19 @@ function Invitation() {
                 <p className="mt-6 max-w-md mx-auto text-cream/90 italic">
                   Kindly bless us with your presence and confirm your attendance.
                 </p>
-                <button data-cursor="magnetic" className="mt-8 px-8 py-3 rounded-full bg-cream text-ink text-sm tracking-widest-plus hover:bg-gold transition">
+                <button
+                  data-cursor="magnetic"
+                  onClick={() => setRsvpOpen(true)}
+                  aria-expanded={rsvpOpen}
+                  className="mt-8 px-8 py-3 rounded-full bg-cream text-ink text-sm tracking-widest-plus hover:bg-gold transition"
+                >
                   CONFIRM ATTENDANCE
                 </button>
+                {rsvpOpen && (
+                  <p className="mt-6 max-w-md mx-auto text-cream text-sm tracking-wide border-t border-cream/30 pt-4">
+                    Please reach out to the families directly to confirm attendance.
+                  </p>
+                )}
               </div>
             </div>
           </section>

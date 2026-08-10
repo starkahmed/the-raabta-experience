@@ -53,7 +53,7 @@ function Invitation() {
         {/* CHAPTER 02 — Verse */}
         <Chapter id="verse">
           <div className="text-center max-w-3xl">
-            <p className="cine-fade text-gold/70 tracking-[0.5em] text-[10px] md:text-xs mb-12">
+            <p className="cine-fade text-gold/85 tracking-[0.3em] text-[10px] md:text-xs mb-12">
               A SIGN FROM HIM
             </p>
             <KineticText
@@ -79,7 +79,7 @@ function Invitation() {
         {/* CHAPTER 03 — Invitation */}
         <Chapter id="invitation">
           <div className="text-center max-w-3xl">
-            <p className="cine-fade text-cream/60 tracking-[0.5em] text-[10px] md:text-xs mb-12">
+            <p className="cine-fade text-cream/85 tracking-[0.3em] text-[10px] md:text-xs mb-12">
               TOGETHER WITH OUR FAMILIES
             </p>
             <KineticText
@@ -112,7 +112,7 @@ function Invitation() {
         {/* CHAPTER 04 — Bride & Groom */}
         <Chapter id="couple">
           <div className="text-center">
-            <p className="cine-fade text-cream/60 tracking-[0.5em] text-[10px] md:text-xs mb-14">
+            <p className="cine-fade text-cream/85 tracking-[0.3em] text-[10px] md:text-xs mb-14">
               THE COUPLE
             </p>
             <KineticText
@@ -147,7 +147,7 @@ function Invitation() {
         <Chapter id="nikah">
           <div className="max-w-6xl w-full grid md:grid-cols-2 gap-14 items-center">
             <div className="relative order-2 md:order-1 text-center md:text-left">
-              <p className="cine-fade text-gold/70 tracking-[0.5em] text-[10px] md:text-xs mb-6">
+              <p className="cine-fade text-gold/85 tracking-[0.3em] text-[10px] md:text-xs mb-6">
                 THE CEREMONY
               </p>
               <KineticText
@@ -213,7 +213,7 @@ function Invitation() {
               </div>
             </div>
             <div className="text-center md:text-left">
-              <p className="cine-fade text-gold/70 tracking-[0.5em] text-[10px] md:text-xs mb-6">
+              <p className="cine-fade text-gold/85 tracking-[0.3em] text-[10px] md:text-xs mb-6">
                 THE RECEPTION
               </p>
               <KineticText
@@ -253,7 +253,7 @@ function Invitation() {
           <HeroParallax3D />
 
           <div className="relative z-10 text-center px-6">
-            <p className="cine-fade text-cream/70 tracking-[0.5em] text-[10px] md:text-xs mb-6">
+            <p className="cine-fade text-cream/85 tracking-[0.3em] text-[10px] md:text-xs mb-6">
               SAVE THE DATE
             </p>
             <KineticText

@@ -259,8 +259,19 @@ function Invitation() {
           </div>
         </Chapter>
 
+        {/* Dark-to-cream blend */}
+        <div
+          aria-hidden
+          className="relative h-40 md:h-56 w-full"
+          style={{
+            background:
+              "linear-gradient(180deg, transparent 0%, oklch(0.55 0.10 60 / 0.35) 45%, var(--color-cream) 100%)",
+          }}
+        />
+
         {/* Everything below sits on cream */}
         <div className="relative bg-cream text-ink">
+
           {/* RSVP */}
           <section className="relative overflow-hidden">
             <img

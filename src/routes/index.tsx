@@ -9,8 +9,8 @@ import { SmoothScroll } from "@/components/SmoothScroll";
 import { CursorGlow } from "@/components/CursorGlow";
 import { Chapter } from "@/components/Chapter";
 import { KineticText } from "@/components/KineticText";
-import { SkyDriftHero } from "@/components/SkyDriftHero";
-import { HeroParallax3D } from "@/components/HeroParallax3D";
+import { BismillahScene } from "@/components/BismillahScene";
+import { MosqueScene } from "@/components/MosqueScene";
 
 export const Route = createFileRoute("/")({
   component: Invitation,
@@ -44,18 +44,15 @@ function Invitation() {
       <NightSky />
       <CursorGlow />
       <main className="text-cream">
-        {/* CHAPTER 01 — Bismillah (3D landing) */}
+        {/* Bismillah (3D landing) */}
         <Chapter id="bismillah" className="overflow-hidden">
-          <SkyDriftHero />
+          <BismillahScene />
         </Chapter>
 
 
-        {/* CHAPTER 02 — Verse */}
+        {/* Verse */}
         <Chapter id="verse">
           <div className="text-center max-w-3xl">
-            <p className="cine-fade text-gold/85 tracking-[0.3em] text-[10px] md:text-xs mb-12">
-              A SIGN FROM HIM
-            </p>
             <KineticText
               text="And He placed between you"
               as="p"
@@ -76,12 +73,9 @@ function Invitation() {
           </div>
         </Chapter>
 
-        {/* CHAPTER 03 — Invitation */}
+        {/* Invitation */}
         <Chapter id="invitation">
           <div className="text-center max-w-3xl">
-            <p className="cine-fade text-cream/85 tracking-[0.3em] text-[10px] md:text-xs mb-12">
-              TOGETHER WITH OUR FAMILIES
-            </p>
             <KineticText
               text="Mr. & Mrs. Firoz-Uddin Shaikh"
               as="p"
@@ -109,12 +103,9 @@ function Invitation() {
           </div>
         </Chapter>
 
-        {/* CHAPTER 04 — Bride & Groom */}
+        {/* Bride & Groom */}
         <Chapter id="couple">
           <div className="text-center">
-            <p className="cine-fade text-cream/85 tracking-[0.3em] text-[10px] md:text-xs mb-14">
-              THE COUPLE
-            </p>
             <KineticText
               text="AHMED RAZA"
               as="h1"
@@ -143,13 +134,10 @@ function Invitation() {
           </div>
         </Chapter>
 
-        {/* CHAPTER 05 — Nikah */}
+        {/* Nikah */}
         <Chapter id="nikah">
           <div className="max-w-6xl w-full grid md:grid-cols-2 gap-14 items-center">
             <div className="relative order-2 md:order-1 text-center md:text-left">
-              <p className="cine-fade text-gold/85 tracking-[0.3em] text-[10px] md:text-xs mb-6">
-                THE CEREMONY
-              </p>
               <KineticText
                 text="Nikah"
                 as="h2"
@@ -196,7 +184,7 @@ function Invitation() {
           </div>
         </Chapter>
 
-        {/* CHAPTER 06 — Walima */}
+        {/* Walima */}
         <Chapter id="walima">
           <div className="max-w-6xl w-full grid md:grid-cols-2 gap-14 items-center">
             <div className="relative">
@@ -213,9 +201,6 @@ function Invitation() {
               </div>
             </div>
             <div className="text-center md:text-left">
-              <p className="cine-fade text-gold/85 tracking-[0.3em] text-[10px] md:text-xs mb-6">
-                THE RECEPTION
-              </p>
               <KineticText
                 text="Walima"
                 as="h2"
@@ -248,14 +233,11 @@ function Invitation() {
           </div>
         </Chapter>
 
-        {/* CHAPTER 07 — Cinematic mosque reveal (hero) */}
+        {/* Cinematic mosque reveal (hero) */}
         <Chapter id="mosque" className="overflow-hidden">
-          <HeroParallax3D />
+          <MosqueScene />
 
           <div className="relative z-10 text-center px-6">
-            <p className="cine-fade text-cream/85 tracking-[0.3em] text-[10px] md:text-xs mb-6">
-              SAVE THE DATE
-            </p>
             <KineticText
               text="Under sacred skies"
               as="p"

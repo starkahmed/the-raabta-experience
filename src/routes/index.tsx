@@ -54,7 +54,7 @@ function Invitation() {
         <Chapter id="verse">
           <div className="text-center max-w-3xl">
             <p className="cine-fade text-gold/70 tracking-[0.5em] text-[10px] md:text-xs mb-12">
-              CHAPTER 02 · A SIGN FROM HIM
+              A SIGN FROM HIM
             </p>
             <KineticText
               text="And He placed between you"
@@ -80,7 +80,7 @@ function Invitation() {
         <Chapter id="invitation">
           <div className="text-center max-w-3xl">
             <p className="cine-fade text-cream/60 tracking-[0.5em] text-[10px] md:text-xs mb-12">
-              CHAPTER 03 · TOGETHER WITH OUR FAMILIES
+              TOGETHER WITH OUR FAMILIES
             </p>
             <KineticText
               text="Mr. & Mrs. Firoz-Uddin Shaikh"
@@ -113,7 +113,7 @@ function Invitation() {
         <Chapter id="couple">
           <div className="text-center">
             <p className="cine-fade text-cream/60 tracking-[0.5em] text-[10px] md:text-xs mb-14">
-              CHAPTER 04 · THE COUPLE
+              THE COUPLE
             </p>
             <KineticText
               text="AHMED RAZA"
@@ -148,7 +148,7 @@ function Invitation() {
           <div className="max-w-6xl w-full grid md:grid-cols-2 gap-14 items-center">
             <div className="relative order-2 md:order-1 text-center md:text-left">
               <p className="cine-fade text-gold/70 tracking-[0.5em] text-[10px] md:text-xs mb-6">
-                CHAPTER 05 · THE CEREMONY
+                THE CEREMONY
               </p>
               <KineticText
                 text="Nikah"
@@ -214,7 +214,7 @@ function Invitation() {
             </div>
             <div className="text-center md:text-left">
               <p className="cine-fade text-gold/70 tracking-[0.5em] text-[10px] md:text-xs mb-6">
-                CHAPTER 06 · THE RECEPTION
+                THE RECEPTION
               </p>
               <KineticText
                 text="Walima"
@@ -254,7 +254,7 @@ function Invitation() {
 
           <div className="relative z-10 text-center px-6">
             <p className="cine-fade text-cream/70 tracking-[0.5em] text-[10px] md:text-xs mb-6">
-              CHAPTER 07 · SAVE THE DATE
+              SAVE THE DATE
             </p>
             <KineticText
               text="Under sacred skies"

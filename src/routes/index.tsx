@@ -328,9 +328,12 @@ function Invitation() {
           </section>
 
           {/* COUNTDOWN */}
-          <section className="relative py-24 md:py-32 px-6 overflow-hidden" style={{ background: "linear-gradient(180deg, oklch(0.38 0.08 250) 0%, oklch(0.55 0.12 40) 100%)" }}>
-            <div className="max-w-4xl mx-auto text-center text-cream">
-              <p className="text-script text-4xl mb-2">The countdown</p>
+          <section
+            className="relative py-24 md:py-32 px-6 overflow-hidden"
+            style={{ background: "linear-gradient(180deg, oklch(0.90 0.06 78) 0%, var(--color-cream) 100%)" }}
+          >
+            <div className="max-w-4xl mx-auto text-center text-ink">
+              <p className="text-script text-4xl text-ember mb-2">The countdown</p>
               <h2 className="text-display text-5xl md:text-6xl mb-12 tracking-wide">to our Nikah</h2>
               <div className="grid grid-cols-4 gap-3 md:gap-8 max-w-2xl mx-auto">
                 {[
@@ -339,16 +342,17 @@ function Invitation() {
                   { v: m, l: "Minutes" },
                   { v: s, l: "Seconds" },
                 ].map((u) => (
-                  <div key={u.l} className="rounded-2xl bg-cream/10 backdrop-blur border border-cream/20 p-4 md:p-6">
+                  <div key={u.l} className="rounded-2xl bg-cream/70 backdrop-blur border border-gold/40 p-4 md:p-6 shadow-sm">
                     <div className="text-display text-4xl md:text-6xl" suppressHydrationWarning>
                       {ready ? pad(u.v) : "--"}
                     </div>
-                    <div className="text-xs md:text-sm tracking-widest-plus mt-2 opacity-80">{u.l.toUpperCase()}</div>
+                    <div className="text-xs md:text-sm tracking-widest-plus mt-2 text-muted-foreground">{u.l.toUpperCase()}</div>
                   </div>
                 ))}
               </div>
             </div>
           </section>
+
 
           {/* FOOTER */}
           <footer className="py-20 px-6 text-center bg-cream">

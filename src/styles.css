@@ -84,6 +84,7 @@
 @utility text-script {
   font-family: var(--font-script);
   font-weight: 400;
+  text-shadow: 0 0 14px color-mix(in oklch, var(--color-gold) 22%, transparent);
 }
 @utility tracking-widest-plus {
   letter-spacing: 0.4em;

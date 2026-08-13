@@ -17,6 +17,7 @@ export function MosqueScene() {
         width={1600}
         height={1000}
         loading="lazy"
+        decoding="async"
         className="absolute inset-0 h-full w-full object-cover will-change-transform"
         style={{ transform: "translate3d(0, calc(var(--p, 0) * -60px), 0) scale(1.12)" }}
       />
@@ -27,13 +28,13 @@ export function MosqueScene() {
         alt=""
         aria-hidden
         loading="lazy"
-        className="absolute inset-0 h-full w-full object-cover blur-2xl opacity-40 will-change-transform"
+        className="dof-heavy absolute inset-0 h-full w-full object-cover blur-2xl opacity-40 will-change-transform"
         style={{ transform: "translate3d(0, calc(var(--p, 0) * -150px), 0) scale(1.3)" }}
       />
 
       {/* warm bloom */}
       <div
-        className="absolute inset-0 blur-3xl opacity-60 will-change-transform"
+        className="dof-soft absolute inset-0 blur-3xl opacity-60 will-change-transform"
         style={{
           transform: "translate3d(0, calc(var(--p, 0) * 70px), 0)",
           background: "radial-gradient(ellipse 70% 45% at 50% 78%, oklch(0.78 0.14 62 / 0.5), transparent 70%)",

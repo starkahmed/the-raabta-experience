@@ -11,6 +11,10 @@ export function NightSky() {
       <img
         src={nightSky.url}
         alt=""
+        width={1600}
+        height={2000}
+        decoding="async"
+        fetchPriority="high"
         className="absolute inset-0 h-full w-full object-cover"
       />
 

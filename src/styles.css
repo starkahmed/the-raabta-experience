@@ -152,47 +152,90 @@
 }
 
 /* ============ Kinetic chapters ============ */
-.cine-chapter .cine-letter {
-  transform: translateY(110%);
-  transition: transform 900ms cubic-bezier(0.2, 0.8, 0.2, 1);
+/* Shared premium easing: long, soft deceleration (no bounce) */
+:root {
+  --ease-silk: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-veil: cubic-bezier(0.33, 0, 0.15, 1);
 }
-.cine-chapter.cine-in .cine-letter { transform: translateY(0); }
+
+.cine-chapter .cine-letter {
+  transform: translateY(105%);
+  opacity: 0.001;
+  transition: transform 1100ms var(--ease-silk), opacity 700ms ease-out;
+}
+.cine-chapter.cine-in .cine-letter { transform: translateY(0); opacity: 1; }
 
 .cine-chapter .cine-fade {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 1s ease-out, transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform: translateY(18px);
+  transition: opacity 1100ms var(--ease-veil), transform 1200ms var(--ease-silk);
   transition-delay: var(--fade-delay, 0.6s);
 }
 .cine-chapter.cine-in .cine-fade { opacity: 1; transform: translateY(0); }
 
 .cine-chapter .cine-image {
   opacity: 0;
-  transform: scale(1.08);
-  filter: blur(12px);
-  transition: opacity 1.4s ease-out, transform 1.6s cubic-bezier(0.2, 0.8, 0.2, 1), filter 1.4s ease-out;
+  transform: scale(1.06);
+  clip-path: inset(6% 6% 6% 6% round 0.75rem);
+  transition:
+    opacity 1400ms var(--ease-veil),
+    transform 1800ms var(--ease-silk),
+    clip-path 1600ms var(--ease-silk);
 }
 .cine-chapter.cine-in .cine-image {
   opacity: 1;
   transform: scale(1);
-  filter: blur(0);
+  clip-path: inset(0% 0% 0% 0% round 0.75rem);
 }
+
+/* Hairline gold rule that draws itself in */
+.cine-chapter .cine-rule {
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 1200ms var(--ease-silk);
+  transition-delay: var(--fade-delay, 0.8s);
+}
+.cine-chapter.cine-in .cine-rule { transform: scaleX(1); }
 
 /* Cursor-reactive magnetic text: soft glow lift on hover */
 [data-cursor="magnetic"] {
-  transition: text-shadow 300ms ease, letter-spacing 400ms ease, transform 400ms ease;
+  transition: text-shadow 400ms var(--ease-veil), letter-spacing 500ms var(--ease-silk);
 }
-[data-cursor="magnetic"]:hover {
-  text-shadow:
-    0 0 24px oklch(0.85 0.16 65 / 0.7),
-    0 0 60px oklch(0.7 0.14 50 / 0.4);
-  letter-spacing: 0.04em;
+@media (hover: hover) and (pointer: fine) {
+  [data-cursor="magnetic"]:hover {
+    text-shadow:
+      0 0 24px oklch(0.85 0.16 65 / 0.7),
+      0 0 60px oklch(0.7 0.14 50 / 0.4);
+    letter-spacing: 0.04em;
+  }
 }
 
 /* Hide native cursor on hover-capable devices for the custom glow */
 @media (hover: hover) and (pointer: fine) {
   html.has-glow, html.has-glow * { cursor: none !important; }
 }
+
+/* ============ Mobile / performance guards ============ */
+/* Heavy full-screen blurs are expensive on phones — drop or soften them. */
+@media (max-width: 767px) {
+  .dof-heavy { display: none !important; }
+  .dof-soft { filter: blur(24px) !important; }
+}
+
+/* Respect users who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  .cine-chapter .cine-letter,
+  .cine-chapter .cine-fade,
+  .cine-chapter .cine-image,
+  .cine-chapter .cine-rule {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+    clip-path: none !important;
+  }
+  * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; }
+}
+
 
 
 /* ============ Portfolio (dark) ============ */

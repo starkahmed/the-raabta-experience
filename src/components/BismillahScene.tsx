@@ -23,7 +23,7 @@ export function BismillahScene() {
 
       {/* mid bloom — heavy blur, slow drift */}
       <div
-        className="absolute inset-0 blur-3xl opacity-70 will-change-transform"
+        className="dof-soft absolute inset-0 blur-3xl opacity-70 will-change-transform"
         style={{
           transform: "translate3d(0, calc(var(--p, 0) * -80px), 0) scale(1.15)",
           background:
@@ -34,7 +34,7 @@ export function BismillahScene() {
 
       {/* near haze */}
       <div
-        className="absolute inset-0 blur-2xl opacity-50 will-change-transform"
+        className="dof-heavy absolute inset-0 blur-2xl opacity-50 will-change-transform"
         style={{
           transform: "translate3d(0, calc(var(--p, 0) * -160px), 0)",
           background:
@@ -50,7 +50,7 @@ export function BismillahScene() {
       >
         <div className="text-center max-w-3xl">
           <p
-            className="text-5xl md:text-7xl mb-10 text-cream"
+            className="text-4xl sm:text-5xl md:text-7xl mb-8 md:mb-10 text-cream leading-[1.6]"
             dir="rtl"
             lang="ar"
             data-cursor="magnetic"

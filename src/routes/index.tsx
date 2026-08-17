@@ -7,6 +7,7 @@ import walimaAsset from "@/assets/walima-stage.jpg.asset.json";
 import { NightSky } from "@/components/NightSky";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { CursorGlow } from "@/components/CursorGlow";
+import { AmbientMusic } from "@/components/AmbientMusic";
 import { Chapter } from "@/components/Chapter";
 import { KineticText } from "@/components/KineticText";
 import { BismillahScene } from "@/components/BismillahScene";
@@ -46,6 +47,7 @@ function Invitation() {
       <SmoothScroll />
       <NightSky />
       <CursorGlow />
+      <AmbientMusic />
       <main className="text-cream overflow-x-hidden">
         {/* Bismillah */}
         <Chapter id="bismillah" className="overflow-hidden">

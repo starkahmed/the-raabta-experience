@@ -12,6 +12,8 @@ import { Chapter } from "@/components/Chapter";
 import { KineticText } from "@/components/KineticText";
 import { BismillahScene } from "@/components/BismillahScene";
 import { MosqueScene } from "@/components/MosqueScene";
+import { ParallaxImage } from "@/components/ParallaxImage";
+import { RollingDigits } from "@/components/RollingDigits";
 
 export const Route = createFileRoute("/")({
   component: Invitation,
@@ -200,19 +202,10 @@ function Invitation() {
               </div>
             </div>
             <div className="order-1 md:order-2 relative min-w-0">
-              <div className="cine-image relative overflow-hidden rounded-xl">
-                <img
-                  src={nikahAsset.url}
-                  alt="Nikah stage with a white floral arch and blush roses"
-                  width={900}
-                  height={1100}
-                  loading="lazy"
-                  decoding="async"
-                  sizes="(min-width: 768px) 45vw, 92vw"
-                  className="w-full aspect-[4/5] object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-              </div>
+              <ParallaxImage
+                src={nikahAsset.url}
+                alt="Nikah stage with a white floral arch and blush roses"
+              />
             </div>
           </div>
         </Chapter>
@@ -221,19 +214,10 @@ function Invitation() {
         <Chapter id="walima" className="py-24 md:py-0">
           <div className="max-w-6xl w-full grid md:grid-cols-2 gap-10 md:gap-14 items-center">
             <div className="relative min-w-0">
-              <div className="cine-image relative overflow-hidden rounded-xl">
-                <img
-                  src={walimaAsset.url}
-                  alt="Walima reception stage with illuminated white arches and florals"
-                  width={900}
-                  height={1100}
-                  loading="lazy"
-                  decoding="async"
-                  sizes="(min-width: 768px) 45vw, 92vw"
-                  className="w-full aspect-[4/5] object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-              </div>
+              <ParallaxImage
+                src={walimaAsset.url}
+                alt="Walima reception stage with illuminated white arches and florals"
+              />
             </div>
             <div className="text-center md:text-left min-w-0">
               <p

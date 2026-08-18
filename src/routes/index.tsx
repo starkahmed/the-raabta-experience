@@ -410,8 +410,9 @@ function Invitation() {
                       className="text-display text-3xl sm:text-4xl md:text-6xl tabular-nums"
                       suppressHydrationWarning
                     >
-                      {ready ? pad(u.v) : "--"}
+                      <RollingDigits value={ready ? pad(u.v) : "--"} />
                     </div>
+
                     <div className="text-[0.6rem] sm:text-xs md:text-sm tracking-[0.2em] mt-2 text-muted-foreground">
                       {u.l.toUpperCase()}
                     </div>

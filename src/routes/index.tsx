@@ -272,6 +272,21 @@ function Invitation() {
                 >
                   SEE THE ROUTE
                 </a>
+                <CalendarButton
+                  event={{
+                    title: "Walima Reception — Ahmed Raza & Nazziya",
+                    description:
+                      "Join us for the Walima celebration of Ahmed Raza Shaikh and Nazziya. Evening dinner reception.",
+                    location:
+                      "MDS Banquets & Lawns, Dadasaheb Sahasrabudhe Rd, Kiwale, Ravet, Pimpri-Chinchwad, Maharashtra 412101",
+                    startDate: new Date("2026-10-28T18:00:00+05:30"),
+                    endDate: new Date("2026-10-28T22:30:00+05:30"),
+                  }}
+                  filename="walima-ahmed-raza-nazziya.ics"
+                  className={mapLink}
+                >
+                  ADD TO CALENDAR
+                </CalendarButton>
               </div>
             </div>
           </div>

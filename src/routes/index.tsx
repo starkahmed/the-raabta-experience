@@ -14,6 +14,7 @@ import { BismillahScene } from "@/components/BismillahScene";
 import { MosqueScene } from "@/components/MosqueScene";
 import { ParallaxImage } from "@/components/ParallaxImage";
 import { RollingDigits } from "@/components/RollingDigits";
+import { CalendarButton } from "@/components/CalendarButton";
 
 export const Route = createFileRoute("/")({
   component: Invitation,
@@ -199,6 +200,21 @@ function Invitation() {
                 >
                   SEE THE ROUTE
                 </a>
+                <CalendarButton
+                  event={{
+                    title: "Nikah Ceremony — Ahmed Raza & Nazziya",
+                    description:
+                      "Join us for the Nikah ceremony of Ahmed Raza Shaikh and Nazziya. Immediately after Namaz-e-Isha.",
+                    location:
+                      "Raaga Palace, Mother Teresa Flyover, near Nathu Nadhe Corner, Vijay Nagar, Kalewadi, Pimpri-Chinchwad, Pune, Maharashtra 411017",
+                    startDate: new Date("2026-10-26T19:30:00+05:30"),
+                    endDate: new Date("2026-10-26T21:00:00+05:30"),
+                  }}
+                  filename="nikah-ahmed-raza-nazziya.ics"
+                  className={mapLink}
+                >
+                  ADD TO CALENDAR
+                </CalendarButton>
               </div>
             </div>
             <div className="order-1 md:order-2 relative min-w-0">
@@ -256,6 +272,21 @@ function Invitation() {
                 >
                   SEE THE ROUTE
                 </a>
+                <CalendarButton
+                  event={{
+                    title: "Walima Reception — Ahmed Raza & Nazziya",
+                    description:
+                      "Join us for the Walima celebration of Ahmed Raza Shaikh and Nazziya. Evening dinner reception.",
+                    location:
+                      "MDS Banquets & Lawns, Dadasaheb Sahasrabudhe Rd, Kiwale, Ravet, Pimpri-Chinchwad, Maharashtra 412101",
+                    startDate: new Date("2026-10-28T18:00:00+05:30"),
+                    endDate: new Date("2026-10-28T22:30:00+05:30"),
+                  }}
+                  filename="walima-ahmed-raza-nazziya.ics"
+                  className={mapLink}
+                >
+                  ADD TO CALENDAR
+                </CalendarButton>
               </div>
             </div>
           </div>

@@ -1,5 +1,7 @@
 import type { CSSProperties } from "react";
 import { useScrollProgress } from "@/hooks/use-parallax";
+import { ScrollCue } from "@/components/ScrollCue";
+
 
 /**
  * Opening scene: soft depth-of-field layers (blurred gold bloom, drifting

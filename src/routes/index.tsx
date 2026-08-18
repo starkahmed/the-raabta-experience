@@ -200,6 +200,21 @@ function Invitation() {
                 >
                   SEE THE ROUTE
                 </a>
+                <CalendarButton
+                  event={{
+                    title: "Nikah Ceremony — Ahmed Raza & Nazziya",
+                    description:
+                      "Join us for the Nikah ceremony of Ahmed Raza Shaikh and Nazziya. Immediately after Namaz-e-Isha.",
+                    location:
+                      "Raaga Palace, Mother Teresa Flyover, near Nathu Nadhe Corner, Vijay Nagar, Kalewadi, Pimpri-Chinchwad, Pune, Maharashtra 411017",
+                    startDate: new Date("2026-10-26T19:30:00+05:30"),
+                    endDate: new Date("2026-10-26T21:00:00+05:30"),
+                  }}
+                  filename="nikah-ahmed-raza-nazziya.ics"
+                  className={mapLink}
+                >
+                  ADD TO CALENDAR
+                </CalendarButton>
               </div>
             </div>
             <div className="order-1 md:order-2 relative min-w-0">

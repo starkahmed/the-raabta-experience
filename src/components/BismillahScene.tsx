@@ -80,11 +80,14 @@ export function BismillahScene() {
         </div>
       </div>
 
+      <ScrollCue />
+
       {/* vignette */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{ background: "radial-gradient(ellipse at 50% 55%, transparent 48%, oklch(0 0 0 / 0.55) 100%)" }}
       />
+
 
       <style>{`
         @keyframes bs-breathe { 0%,100% { opacity:.55 } 50% { opacity:.85 } }

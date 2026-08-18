@@ -14,6 +14,7 @@ import { BismillahScene } from "@/components/BismillahScene";
 import { MosqueScene } from "@/components/MosqueScene";
 import { ParallaxImage } from "@/components/ParallaxImage";
 import { RollingDigits } from "@/components/RollingDigits";
+import { CalendarButton } from "@/components/CalendarButton";
 
 export const Route = createFileRoute("/")({
   component: Invitation,

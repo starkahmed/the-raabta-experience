@@ -387,17 +387,14 @@ function Invitation() {
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 text-left">
                 {[
                   {
-                    icon: "☾",
                     title: "Attire",
                     body: "Traditional dress, in whatever colours make you feel your best.",
                   },
                   {
-                    icon: "◈",
                     title: "Arrival",
                     body: "The Nikah begins right after Namaz-e-Isha — please be seated a little before.",
                   },
                   {
-                    icon: "✦",
                     title: "Duas",
                     body: "Your prayers are the gift we treasure most. Nothing else is needed.",
                   },
@@ -405,10 +402,10 @@ function Invitation() {
                   <div
                     key={t.title}
                     data-cursor="magnetic"
-                    className="p-7 md:p-8 rounded-2xl bg-card border border-border/60 shadow-sm transition-transform duration-500 hover:-translate-y-1 hover:shadow-lg"
+                    className="p-7 md:p-8 rounded-[var(--radius-card)] bg-card border border-border/60 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-gold/50 hover:shadow-lg"
                   >
-                    <div className="text-4xl text-gold mb-4">{t.icon}</div>
-                    <h3 className="text-display text-2xl mb-3">{t.title}</h3>
+                    <Ornament size={26} className="text-gold mb-5" />
+                    <h3 className="text-display text-2xl tracking-[0.02em] mb-3">{t.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">{t.body}</p>
                   </div>
                 ))}

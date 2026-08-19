@@ -363,7 +363,7 @@ function Invitation() {
                   data-cursor="magnetic"
                   onClick={() => setRsvpOpen(true)}
                   aria-expanded={rsvpOpen}
-                  className="mt-8 inline-flex items-center justify-center min-h-12 px-8 rounded-full bg-cream text-ink text-xs sm:text-sm tracking-[0.2em] hover:bg-gold transition-colors"
+                  className="mt-8 inline-flex items-center justify-center min-h-12 px-8 rounded-full bg-cream text-ink text-xs sm:text-sm tracking-[0.2em] shadow-sm transition-all duration-500 hover:bg-gold hover:text-ink hover:shadow-lg hover:-translate-y-0.5"
                 >
                   CONFIRM ATTENDANCE
                 </button>
@@ -432,7 +432,7 @@ function Invitation() {
                 ].map((u) => (
                   <div
                     key={u.l}
-                    className="rounded-2xl bg-cream/70 backdrop-blur border border-gold/40 p-3 sm:p-4 md:p-6 shadow-sm"
+                    className="rounded-[var(--radius-card)] bg-cream/70 backdrop-blur border border-gold/40 p-3 sm:p-4 md:p-6 shadow-sm"
                   >
                     <div
                       className="text-display text-3xl sm:text-4xl md:text-6xl tabular-nums"
@@ -456,7 +456,7 @@ function Invitation() {
               We look forward to
             </p>
             <h3 className="text-display text-2xl sm:text-3xl md:text-4xl mb-6">celebrating with you</h3>
-            <div className="w-16 h-px bg-gold my-6 mx-auto" />
+            <OrnamentDivider className="my-7" width="w-40" />
             <p className="max-w-xl mx-auto text-muted-foreground italic leading-relaxed">
               May Allah (SWT) bless this union with love, mercy and barakah, today and for all the years
               ahead. Ameen.

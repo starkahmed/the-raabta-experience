@@ -15,6 +15,7 @@ import { MosqueScene } from "@/components/MosqueScene";
 import { ParallaxImage } from "@/components/ParallaxImage";
 import { RollingDigits } from "@/components/RollingDigits";
 import { CalendarButton } from "@/components/CalendarButton";
+import { Ornament, OrnamentDivider } from "@/components/Ornament";
 
 export const Route = createFileRoute("/")({
   component: Invitation,
@@ -38,8 +39,7 @@ function useCountdown(target: Date) {
 
 const pad = (n: number) => n.toString().padStart(2, "0");
 
-const mapLink =
-  "inline-flex items-center justify-center min-h-11 mt-6 px-1 text-[0.7rem] sm:text-xs tracking-[0.3em] text-gold border-b border-gold/50 hover:text-cream hover:border-cream transition-colors";
+const mapLink = "link-quiet mt-5";
 
 function Invitation() {
   const { d, h, m, s, ready } = useCountdown(new Date("2026-10-26T19:30:00+05:30"));
@@ -99,9 +99,9 @@ function Invitation() {
               step={0.02}
               baseDelay={0.4}
             />
-            <p className="cine-fade text-gold text-lg my-3" style={{ "--fade-delay": "1s" } as CSSProperties}>
-              ◆
-            </p>
+            <div className="cine-fade my-5" style={{ "--fade-delay": "1s" } as CSSProperties}>
+              <OrnamentDivider width="w-32" />
+            </div>
             <KineticText
               text="Mr. & Mrs. Salim Saifi"
               as="p"
@@ -324,10 +324,10 @@ function Invitation() {
         {/* Dark-to-cream blend */}
         <div
           aria-hidden
-          className="relative h-40 md:h-56 w-full"
+          className="relative h-56 md:h-72 w-full"
           style={{
             background:
-              "linear-gradient(180deg, transparent 0%, oklch(0.55 0.10 60 / 0.35) 45%, var(--color-cream) 100%)",
+              "linear-gradient(180deg, transparent 0%, oklch(0.42 0.09 55 / 0.55) 30%, oklch(0.68 0.11 68 / 0.7) 62%, oklch(0.88 0.06 78) 85%, var(--color-cream) 100%)",
           }}
         />
 
@@ -345,7 +345,13 @@ function Invitation() {
               sizes="100vw"
               className="w-full h-[80vh] md:h-[70vh] object-cover"
             />
-            <div className="absolute inset-0 flex items-center justify-center bg-black/40 px-6">
+            <div
+              className="absolute inset-0 flex items-center justify-center px-6"
+              style={{
+                background:
+                  "linear-gradient(180deg, oklch(0.18 0.03 60 / 0.55) 0%, oklch(0.16 0.04 55 / 0.62) 55%, oklch(0.20 0.05 50 / 0.45) 100%)",
+              }}
+            >
               <div className="text-center text-cream w-full max-w-md">
                 <p className="text-script text-4xl sm:text-5xl md:text-6xl mb-2 leading-[1.4]">Please</p>
                 <h2
@@ -363,7 +369,7 @@ function Invitation() {
                   data-cursor="magnetic"
                   onClick={() => setRsvpOpen(true)}
                   aria-expanded={rsvpOpen}
-                  className="mt-8 inline-flex items-center justify-center min-h-12 px-8 rounded-full bg-cream text-ink text-xs sm:text-sm tracking-[0.2em] hover:bg-gold transition-colors"
+                  className="mt-8 inline-flex items-center justify-center min-h-12 px-8 rounded-full bg-cream text-ink text-xs sm:text-sm tracking-[0.2em] shadow-sm transition-all duration-500 hover:bg-gold hover:text-ink hover:shadow-lg hover:-translate-y-0.5"
                 >
                   CONFIRM ATTENDANCE
                 </button>
@@ -387,17 +393,14 @@ function Invitation() {
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 text-left">
                 {[
                   {
-                    icon: "☾",
                     title: "Attire",
                     body: "Traditional dress, in whatever colours make you feel your best.",
                   },
                   {
-                    icon: "◈",
                     title: "Arrival",
                     body: "The Nikah begins right after Namaz-e-Isha — please be seated a little before.",
                   },
                   {
-                    icon: "✦",
                     title: "Duas",
                     body: "Your prayers are the gift we treasure most. Nothing else is needed.",
                   },
@@ -405,10 +408,10 @@ function Invitation() {
                   <div
                     key={t.title}
                     data-cursor="magnetic"
-                    className="p-7 md:p-8 rounded-2xl bg-card border border-border/60 shadow-sm transition-transform duration-500 hover:-translate-y-1 hover:shadow-lg"
+                    className="p-7 md:p-8 rounded-[var(--radius-card)] bg-card border border-border/60 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-gold/50 hover:shadow-lg"
                   >
-                    <div className="text-4xl text-gold mb-4">{t.icon}</div>
-                    <h3 className="text-display text-2xl mb-3">{t.title}</h3>
+                    <Ornament size={26} className="text-gold mb-5" />
+                    <h3 className="text-display text-2xl tracking-[0.02em] mb-3">{t.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">{t.body}</p>
                   </div>
                 ))}
@@ -435,7 +438,7 @@ function Invitation() {
                 ].map((u) => (
                   <div
                     key={u.l}
-                    className="rounded-2xl bg-cream/70 backdrop-blur border border-gold/40 p-3 sm:p-4 md:p-6 shadow-sm"
+                    className="rounded-[var(--radius-card)] bg-cream/70 backdrop-blur border border-gold/40 p-3 sm:p-4 md:p-6 shadow-sm"
                   >
                     <div
                       className="text-display text-3xl sm:text-4xl md:text-6xl tabular-nums"
@@ -459,7 +462,7 @@ function Invitation() {
               We look forward to
             </p>
             <h3 className="text-display text-2xl sm:text-3xl md:text-4xl mb-6">celebrating with you</h3>
-            <div className="w-16 h-px bg-gold my-6 mx-auto" />
+            <OrnamentDivider className="my-7" width="w-40" />
             <p className="max-w-xl mx-auto text-muted-foreground italic leading-relaxed">
               May Allah (SWT) bless this union with love, mercy and barakah, today and for all the years
               ahead. Ameen.

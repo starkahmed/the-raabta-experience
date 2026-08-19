@@ -15,6 +15,7 @@ import { MosqueScene } from "@/components/MosqueScene";
 import { ParallaxImage } from "@/components/ParallaxImage";
 import { RollingDigits } from "@/components/RollingDigits";
 import { CalendarButton } from "@/components/CalendarButton";
+import { Ornament, OrnamentDivider } from "@/components/Ornament";
 
 export const Route = createFileRoute("/")({
   component: Invitation,
@@ -38,8 +39,7 @@ function useCountdown(target: Date) {
 
 const pad = (n: number) => n.toString().padStart(2, "0");
 
-const mapLink =
-  "inline-flex items-center justify-center min-h-11 mt-6 px-1 text-[0.7rem] sm:text-xs tracking-[0.3em] text-gold border-b border-gold/50 hover:text-cream hover:border-cream transition-colors";
+const mapLink = "link-quiet mt-5";
 
 function Invitation() {
   const { d, h, m, s, ready } = useCountdown(new Date("2026-10-26T19:30:00+05:30"));
@@ -99,9 +99,9 @@ function Invitation() {
               step={0.02}
               baseDelay={0.4}
             />
-            <p className="cine-fade text-gold text-lg my-3" style={{ "--fade-delay": "1s" } as CSSProperties}>
-              ◆
-            </p>
+            <div className="cine-fade my-5" style={{ "--fade-delay": "1s" } as CSSProperties}>
+              <OrnamentDivider width="w-32" />
+            </div>
             <KineticText
               text="Mr. & Mrs. Salim Saifi"
               as="p"

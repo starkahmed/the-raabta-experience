@@ -364,3 +364,42 @@
   .scroll-cue { animation: none; opacity: 1; }
   .cine-chapter .cine-rule::after { display: none; }
 }
+
+/* ============ Unified interactive states ============ */
+:root {
+  --radius-card: 1rem;
+}
+
+@utility link-quiet {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding-inline: 0.25rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  color: var(--color-gold);
+  border-bottom: 1px solid color-mix(in oklch, var(--color-gold) 45%, transparent);
+  border-radius: 2px;
+  transition:
+    color 400ms var(--ease-veil),
+    border-color 400ms var(--ease-veil),
+    letter-spacing 500ms var(--ease-silk);
+}
+@media (hover: hover) and (pointer: fine) {
+  .link-quiet:hover {
+    color: var(--color-cream);
+    border-bottom-color: var(--color-cream);
+    letter-spacing: 0.34em;
+  }
+}
+
+:where(a, button):focus-visible {
+  outline: 2px solid color-mix(in oklch, var(--color-gold) 80%, transparent);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* One radius family across cards and revealed imagery */
+.cine-chapter .cine-image { clip-path: inset(6% 6% 6% 6% round var(--radius-card)); }
+.cine-chapter.cine-in .cine-image { clip-path: inset(0% 0% 0% 0% round var(--radius-card)); }

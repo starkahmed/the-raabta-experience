@@ -324,10 +324,10 @@ function Invitation() {
         {/* Dark-to-cream blend */}
         <div
           aria-hidden
-          className="relative h-40 md:h-56 w-full"
+          className="relative h-56 md:h-72 w-full"
           style={{
             background:
-              "linear-gradient(180deg, transparent 0%, oklch(0.55 0.10 60 / 0.35) 45%, var(--color-cream) 100%)",
+              "linear-gradient(180deg, transparent 0%, oklch(0.42 0.09 55 / 0.55) 30%, oklch(0.68 0.11 68 / 0.7) 62%, oklch(0.88 0.06 78) 85%, var(--color-cream) 100%)",
           }}
         />
 
@@ -345,7 +345,13 @@ function Invitation() {
               sizes="100vw"
               className="w-full h-[80vh] md:h-[70vh] object-cover"
             />
-            <div className="absolute inset-0 flex items-center justify-center bg-black/40 px-6">
+            <div
+              className="absolute inset-0 flex items-center justify-center px-6"
+              style={{
+                background:
+                  "linear-gradient(180deg, oklch(0.18 0.03 60 / 0.55) 0%, oklch(0.16 0.04 55 / 0.62) 55%, oklch(0.20 0.05 50 / 0.45) 100%)",
+              }}
+            >
               <div className="text-center text-cream w-full max-w-md">
                 <p className="text-script text-4xl sm:text-5xl md:text-6xl mb-2 leading-[1.4]">Please</p>
                 <h2

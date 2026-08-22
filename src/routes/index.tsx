@@ -42,8 +42,9 @@ const pad = (n: number) => n.toString().padStart(2, "0");
 const mapLink = "link-quiet mt-5";
 
 function Invitation() {
-  const { d, h, m, s, ready } = useCountdown(new Date("2026-10-26T19:30:00+05:30"));
+  const { d, h, m, s, ready } = useCountdown(new Date("2026-10-26T18:45:00+05:30"));
   const [rsvpOpen, setRsvpOpen] = useState(false);
+
 
   return (
     <>
@@ -181,7 +182,7 @@ function Invitation() {
                 style={{ "--fade-delay": "0.8s" } as CSSProperties}
               >
                 <p className="text-base sm:text-lg">Monday, 26 October 2026</p>
-                <p className="text-cream/65 italic">Immediately after Namaz-e-Isha</p>
+                <p className="text-cream/65 italic">After Namaz-e-Maghrib, 6:45 PM</p>
                 <div className="cine-rule w-16 h-px bg-gold my-5 mx-auto md:mx-0" />
                 <p className="text-display text-xl sm:text-2xl">Raaga Palace</p>
                 <p className="text-cream/65 text-sm leading-relaxed break-words">
@@ -204,11 +205,11 @@ function Invitation() {
                   event={{
                     title: "Nikah Ceremony — Ahmed Raza & Nazziya",
                     description:
-                      "Join us for the Nikah ceremony of Ahmed Raza Shaikh and Nazziya. Immediately after Namaz-e-Isha.",
+                      "Join us for the Nikah ceremony of Ahmed Raza Shaikh and Nazziya. After Namaz-e-Maghrib, 6:45 PM.",
                     location:
                       "Raaga Palace, Mother Teresa Flyover, near Nathu Nadhe Corner, Vijay Nagar, Kalewadi, Pimpri-Chinchwad, Pune, Maharashtra 411017",
-                    startDate: new Date("2026-10-26T19:30:00+05:30"),
-                    endDate: new Date("2026-10-26T21:00:00+05:30"),
+                    startDate: new Date("2026-10-26T18:45:00+05:30"),
+                    endDate: new Date("2026-10-26T20:30:00+05:30"),
                   }}
                   filename="nikah-ahmed-raza-nazziya.ics"
                   className={mapLink}
@@ -398,7 +399,7 @@ function Invitation() {
                   },
                   {
                     title: "Arrival",
-                    body: "The Nikah begins right after Namaz-e-Isha — please be seated a little before.",
+                    body: "The Nikah begins after Namaz-e-Maghrib at 6:45 PM — please be seated a little before.",
                   },
                   {
                     title: "Duas",

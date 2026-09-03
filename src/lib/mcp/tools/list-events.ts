@@ -9,10 +9,10 @@ const events = [
     venue: "Raaga Palace, Mother Teresa Flyover, near Nathu Nadhe Corner, Vijay Nagar, Kalewadi, Pimpri-Chinchwad, Pune, Maharashtra 411017",
   },
   {
-    title: "Walima",
+    title: "Walima Reception",
     date: "28 October 2026",
     day: "Wednesday",
-    time: "Evening, over dinner",
+    time: "7 PM onwards",
     venue: "MDS Banquets & Lawns, Dadasaheb Sahasrabudhe Rd, Kiwale, Ravet, Pimpri-Chinchwad, Maharashtra 412101",
   },
 ];

@@ -251,12 +251,19 @@ function Invitation() {
                 baseDelay={0.3}
                 data-cursor="magnetic"
               />
+              <p
+                className="cine-fade text-script text-gold text-3xl sm:text-4xl md:text-5xl mt-2 leading-[1.4]"
+                style={{ "--fade-delay": "0.65s" } as CSSProperties}
+                data-cursor="magnetic"
+              >
+                Reception
+              </p>
               <div
                 className="cine-fade mt-7 md:mt-8 space-y-2 text-cream/85"
                 style={{ "--fade-delay": "0.8s" } as CSSProperties}
               >
                 <p className="text-base sm:text-lg">Wednesday, 28 October 2026</p>
-                <p className="text-cream/65 italic">Evening, over dinner</p>
+                <p className="text-cream/65 italic">7 PM onwards</p>
                 <div className="cine-rule w-16 h-px bg-gold my-5 mx-auto md:mx-0" />
                 <p className="text-display text-xl sm:text-2xl">MDS Banquets &amp; Lawns</p>
                 <p className="text-cream/65 text-sm leading-relaxed break-words">
@@ -277,10 +284,10 @@ function Invitation() {
                   event={{
                     title: "Walima Reception — Ahmed Raza & Nazziya",
                     description:
-                      "Join us for the Walima celebration of Ahmed Raza Shaikh and Nazziya. Evening dinner reception.",
+                      "Join us for the Walima reception of Ahmed Raza Shaikh and Nazziya. Evening dinner reception starting 7 PM onwards.",
                     location:
                       "MDS Banquets & Lawns, Dadasaheb Sahasrabudhe Rd, Kiwale, Ravet, Pimpri-Chinchwad, Maharashtra 412101",
-                    startDate: new Date("2026-10-28T18:00:00+05:30"),
+                    startDate: new Date("2026-10-28T19:00:00+05:30"),
                     endDate: new Date("2026-10-28T22:30:00+05:30"),
                   }}
                   filename="walima-ahmed-raza-nazziya.ics"

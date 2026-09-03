@@ -9,8 +9,26 @@ export function MosqueScene() {
   const ref = useScrollProgress<HTMLDivElement>();
 
   return (
-    <div ref={ref} className="absolute inset-0 overflow-hidden">
-      {/* base photograph, slowest layer */}
+    <div ref={ref} className="depth-scene absolute inset-0 overflow-hidden">
+      {/* Distant atmosphere moves slower than the image plane. */}
+      <img
+        src={heroAsset.url}
+        alt=""
+        aria-hidden
+        loading="lazy"
+        decoding="async"
+        className="depth-scene__atmosphere absolute -inset-[10%] h-[120%] w-[120%] object-cover"
+      />
+      {/* Blurred foreground plate creates the soft depth-of-field falloff. */}
+      <img
+        src={heroAsset.url}
+        alt=""
+        aria-hidden
+        loading="lazy"
+        decoding="async"
+        className="depth-scene__blur absolute -inset-[8%] h-[116%] w-[116%] object-cover"
+      />
+      {/* Base photograph, sharpest layer. */}
       <img
         src={heroAsset.url}
         alt="Mosque and minarets under a night sky filled with glowing lanterns"
@@ -18,33 +36,17 @@ export function MosqueScene() {
         height={1000}
         loading="lazy"
         decoding="async"
-        className="absolute inset-0 h-full w-full object-cover will-change-transform"
-        style={{ transform: "translate3d(0, calc(var(--p, 0) * -60px), 0) scale(1.12)" }}
-      />
-
-      {/* blurred duplicate for depth-of-field foreground */}
-      <img
-        src={heroAsset.url}
-        alt=""
-        aria-hidden
-        loading="lazy"
-        className="dof-heavy absolute inset-0 h-full w-full object-cover blur-2xl opacity-40 will-change-transform"
-        style={{ transform: "translate3d(0, calc(var(--p, 0) * -150px), 0) scale(1.3)" }}
+        className="depth-scene__image absolute -inset-[7%] h-[114%] w-[114%] object-cover"
       />
 
       {/* warm bloom */}
       <div
-        className="dof-soft absolute inset-0 blur-3xl opacity-60 will-change-transform"
-        style={{
-          transform: "translate3d(0, calc(var(--p, 0) * 70px), 0)",
-          background: "radial-gradient(ellipse 70% 45% at 50% 78%, oklch(0.78 0.14 62 / 0.5), transparent 70%)",
-        }}
+        className="depth-scene__bloom absolute inset-0"
       />
 
       {/* legibility scrim */}
       <div
-        className="pointer-events-none absolute inset-0"
-        style={{ background: "linear-gradient(180deg, oklch(0.08 0.02 262 / 0.65) 0%, oklch(0.08 0.02 262 / 0.35) 45%, oklch(0.08 0.02 262 / 0.75) 100%)" }}
+        className="depth-scene__veil pointer-events-none absolute inset-0"
       />
     </div>
   );

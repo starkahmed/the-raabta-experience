@@ -52,7 +52,7 @@ export function BismillahScene() {
       >
         <div className="text-center max-w-3xl">
           <p
-            className="text-4xl sm:text-5xl md:text-7xl mb-8 md:mb-10 text-cream leading-[1.6]"
+            className="text-6xl sm:text-7xl md:text-9xl mb-8 md:mb-10 text-cream leading-[1.35]"
             dir="rtl"
             lang="ar"
             data-cursor="magnetic"
@@ -64,7 +64,7 @@ export function BismillahScene() {
             بِسْمِ اللَّهِ الرَّحْمٰنِ الرَّحِيْم
           </p>
           <p
-            className="cine-fade text-cream/85 tracking-[0.3em] text-xs md:text-sm"
+            className="cine-fade text-cream/85 tracking-[0.3em] text-sm md:text-base"
             style={{ "--fade-delay": "0.6s" } as CSSProperties}
           >
             BISMILLAHIR RAHMANIR RAHIM

@@ -21,7 +21,7 @@ export function ScrollCue() {
       className="scroll-cue pointer-events-none absolute inset-x-0 bottom-8 md:bottom-10 flex flex-col items-center gap-3"
       data-hidden={hidden ? "true" : "false"}
     >
-      <span className="text-cream/60 text-[0.6rem] tracking-[0.35em]">SCROLL</span>
+      <span className="text-cream/60 text-xs tracking-[0.35em]">SCROLL</span>
       <svg width="18" height="10" viewBox="0 0 18 10" fill="none" className="scroll-cue-chevron">
         <path
           d="M1 1L9 8L17 1"

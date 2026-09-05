@@ -178,7 +178,7 @@ function Invitation() {
                 data-cursor="magnetic"
               />
               <div
-                className="cine-fade mt-7 md:mt-8 space-y-2 text-cream/85"
+                className="cine-fade gold-sweep mt-7 md:mt-8 space-y-2 text-cream/85"
                 style={{ "--fade-delay": "0.8s" } as CSSProperties}
               >
                 <p className="text-base sm:text-lg">Monday, 26 October 2026</p>
@@ -259,7 +259,7 @@ function Invitation() {
                 Reception
               </p>
               <div
-                className="cine-fade mt-7 md:mt-8 space-y-2 text-cream/85"
+                className="cine-fade gold-sweep mt-7 md:mt-8 space-y-2 text-cream/85"
                 style={{ "--fade-delay": "0.8s" } as CSSProperties}
               >
                 <p className="text-base sm:text-lg">Wednesday, 28 October 2026</p>
@@ -375,9 +375,10 @@ function Invitation() {
                 <button
                   type="button"
                   data-cursor="magnetic"
+                  data-magnetic="true"
                   onClick={() => setRsvpOpen(true)}
                   aria-expanded={rsvpOpen}
-                  className="mt-8 inline-flex items-center justify-center min-h-12 px-8 rounded-full bg-cream text-ink text-xs sm:text-sm tracking-[0.2em] shadow-sm transition-all duration-500 hover:bg-gold hover:text-ink hover:shadow-lg hover:-translate-y-0.5"
+                  className="magnetic-control mt-8 inline-flex items-center justify-center min-h-12 px-8 rounded-full bg-cream text-ink text-xs sm:text-sm tracking-[0.2em] shadow-sm transition-[background-color,color,box-shadow] duration-500 hover:bg-gold hover:text-ink hover:shadow-lg"
                 >
                   CONFIRM ATTENDANCE
                 </button>

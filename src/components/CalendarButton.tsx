@@ -19,7 +19,8 @@ export function CalendarButton({ event, filename, children, className = "" }: Ca
       type="button"
       onClick={handleClick}
       data-cursor="magnetic"
-      className={className}
+      data-magnetic="true"
+      className={`magnetic-control ${className}`}
       aria-label="Add event to calendar"
     >
       {children}

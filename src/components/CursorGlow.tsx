@@ -25,26 +25,54 @@ export function CursorGlow() {
     let ry = my;
     let scale = 1;
     let targetScale = 1;
+    let magneticTarget: HTMLElement | null = null;
+    let magneticX = 0;
+    let magneticY = 0;
+    let targetMagneticX = 0;
+    let targetMagneticY = 0;
     let raf = 0;
 
     const onMove = (e: PointerEvent) => {
       mx = e.clientX;
       my = e.clientY;
       dot.style.transform = `translate3d(${mx}px, ${my}px, 0)`;
+
+      if (magneticTarget) {
+        const rect = magneticTarget.getBoundingClientRect();
+        targetMagneticX = Math.max(-1, Math.min(1, (mx - (rect.left + rect.width / 2)) / (rect.width / 2))) * 7;
+        targetMagneticY = Math.max(-1, Math.min(1, (my - (rect.top + rect.height / 2)) / (rect.height / 2))) * 5;
+      }
     };
     const onOver = (e: Event) => {
       const t = e.target as HTMLElement;
       if (t.closest?.("[data-cursor='magnetic']")) targetScale = 3.2;
+      const nextTarget = t.closest?.("[data-magnetic]") as HTMLElement | null;
+      if (nextTarget) magneticTarget = nextTarget;
     };
     const onOut = (e: Event) => {
       const t = e.target as HTMLElement;
       if (t.closest?.("[data-cursor='magnetic']")) targetScale = 1;
+      const leavingTarget = t.closest?.("[data-magnetic]") as HTMLElement | null;
+      const related = (e as PointerEvent).relatedTarget as Node | null;
+      if (leavingTarget && (!related || !leavingTarget.contains(related))) {
+        leavingTarget.style.setProperty("--mag-x", "0px");
+        leavingTarget.style.setProperty("--mag-y", "0px");
+        magneticTarget = null;
+        targetMagneticX = 0;
+        targetMagneticY = 0;
+      }
     };
 
     const loop = () => {
       rx += (mx - rx) * 0.12;
       ry += (my - ry) * 0.12;
       scale += (targetScale - scale) * 0.15;
+      magneticX += (targetMagneticX - magneticX) * 0.16;
+      magneticY += (targetMagneticY - magneticY) * 0.16;
+      if (magneticTarget) {
+        magneticTarget.style.setProperty("--mag-x", `${magneticX.toFixed(2)}px`);
+        magneticTarget.style.setProperty("--mag-y", `${magneticY.toFixed(2)}px`);
+      }
       ring.style.transform = `translate3d(${rx}px, ${ry}px, 0) translate(-50%, -50%) scale(${scale})`;
       raf = requestAnimationFrame(loop);
     };

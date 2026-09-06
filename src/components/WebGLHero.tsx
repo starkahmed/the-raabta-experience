@@ -71,7 +71,14 @@ function ParticleField({ count }: { count: number }) {
 
   return (
     <points ref={points} geometry={geometry}>
-      <pointsMaterial color={color} size={0.035} transparent opacity={0.62} depthWrite={false} sizeAttenuation />
+      <pointsMaterial
+        color={color}
+        size={0.035}
+        transparent
+        opacity={0.62}
+        depthWrite={false}
+        sizeAttenuation
+      />
     </points>
   );
 }
@@ -143,14 +150,17 @@ function HazePlane() {
         uniforms={uniforms}
         transparent
         depthWrite={false}
-        vertexShader={/* glsl */ `
+        vertexShader={
+          /* glsl */ `
           varying vec2 vUv;
           void main() {
             vUv = uv;
             gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
           }
-        `}
-        fragmentShader={/* glsl */ `
+        `
+        }
+        fragmentShader={
+          /* glsl */ `
           uniform float uTime;
           uniform vec3 uGold;
           uniform vec3 uDusk;
@@ -164,7 +174,8 @@ function HazePlane() {
             float alpha = bloom * 0.22;
             gl_FragColor = vec4(color, alpha);
           }
-        `}
+        `
+        }
       />
     </mesh>
   );
@@ -205,7 +216,9 @@ function HeroScene() {
         <group ref={group}>
           <HazePlane />
           <ParticleField count={particleCount} />
-          {Array.from({ length: 5 }, (_, index) => <LightVessel key={index} index={index} />)}
+          {Array.from({ length: 5 }, (_, index) => (
+            <LightVessel key={index} index={index} />
+          ))}
         </group>
       </Canvas>
     </div>

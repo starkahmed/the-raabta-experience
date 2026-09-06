@@ -1,6 +1,7 @@
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { useEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
+import { useScrollProgress } from "@/hooks/use-parallax";
 
 type FadableMaterial = THREE.Material & { opacity: number; transparent: boolean };
 
@@ -171,7 +172,7 @@ function HazePlane() {
 
 function HeroScene() {
   const group = useRef<THREE.Group>(null);
-  const wrapper = useRef<HTMLDivElement>(null);
+  const wrapper = useScrollProgress<HTMLDivElement>();
   const particleCount = typeof window !== "undefined" && window.innerWidth < 768 ? 260 : 560;
 
   useFrame(() => {

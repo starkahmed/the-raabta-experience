@@ -1,6 +1,7 @@
 import type { CSSProperties } from "react";
 import { useScrollProgress } from "@/hooks/use-parallax";
 import { ScrollCue } from "@/components/ScrollCue";
+import { WebGLHeroLayer } from "@/components/WebGLHeroLayer";
 
 
 /**
@@ -22,6 +23,9 @@ export function BismillahScene() {
             "radial-gradient(ellipse 90% 60% at 50% 42%, oklch(0.32 0.06 255) 0%, oklch(0.14 0.04 260) 62%, oklch(0.08 0.02 262) 100%)",
         }}
       />
+
+      {/* Client-only depth layer; CSS layers remain the graceful fallback. */}
+      <WebGLHeroLayer />
 
       {/* mid bloom — heavy blur, slow drift */}
       <div

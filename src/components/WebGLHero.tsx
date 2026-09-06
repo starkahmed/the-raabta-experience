@@ -181,7 +181,7 @@ function HazePlane() {
   );
 }
 
-function SceneContents({ wrapper }: { wrapper: RefObject<HTMLDivElement | null> }) {
+function SceneContents() {
   const group = useRef<THREE.Group>(null);
   const particleCount = typeof window !== "undefined" && window.innerWidth < 768 ? 260 : 560;
 
@@ -228,7 +228,7 @@ export function WebGLHero() {
         gl={{ alpha: true, antialias: true, powerPreference: "high-performance" }}
         style={{ pointerEvents: "none" }}
       >
-        <SceneContents wrapper={wrapper} />
+        <SceneContents />
       </Canvas>
     </div>
   );

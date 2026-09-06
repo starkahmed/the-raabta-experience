@@ -1,7 +1,7 @@
 import type { CSSProperties } from "react";
 import { useScrollProgress } from "@/hooks/use-parallax";
 import { ScrollCue } from "@/components/ScrollCue";
-
+import { WebGLHeroLayer } from "@/components/WebGLHeroLayer";
 
 /**
  * Opening scene: soft depth-of-field layers (blurred gold bloom, drifting
@@ -22,6 +22,9 @@ export function BismillahScene() {
             "radial-gradient(ellipse 90% 60% at 50% 42%, oklch(0.32 0.06 255) 0%, oklch(0.14 0.04 260) 62%, oklch(0.08 0.02 262) 100%)",
         }}
       />
+
+      {/* Client-only depth layer; CSS layers remain the graceful fallback. */}
+      <WebGLHeroLayer />
 
       {/* mid bloom — heavy blur, slow drift */}
       <div
@@ -85,9 +88,11 @@ export function BismillahScene() {
       {/* vignette */}
       <div
         className="pointer-events-none absolute inset-0"
-        style={{ background: "radial-gradient(ellipse at 50% 55%, transparent 48%, oklch(0 0 0 / 0.55) 100%)" }}
+        style={{
+          background:
+            "radial-gradient(ellipse at 50% 55%, transparent 48%, oklch(0 0 0 / 0.55) 100%)",
+        }}
       />
-
 
       <style>{`
         @keyframes bs-breathe { 0%,100% { opacity:.55 } 50% { opacity:.85 } }

@@ -198,6 +198,19 @@
 }
 .cine-chapter.cine-in .cine-rule { transform: scaleX(1); }
 
+.webgl-hero {
+  z-index: 0;
+  opacity: 0.9;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  transition: opacity 1200ms var(--ease-veil);
+}
+.webgl-hero canvas {
+  display: block;
+  height: 100% !important;
+  width: 100% !important;
+}
+
 /* Cursor-reactive magnetic text: soft glow lift on hover */
 [data-cursor="magnetic"] {
   transition: text-shadow 400ms var(--ease-veil), letter-spacing 500ms var(--ease-silk);
@@ -235,6 +248,7 @@
     clip-path: none !important;
   }
   * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; }
+  .webgl-hero { display: none !important; }
 }
 
 

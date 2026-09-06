@@ -1,5 +1,5 @@
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { useEffect, useMemo, useRef, type RefObject } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
 import { useScrollProgress } from "@/hooks/use-parallax";
 
@@ -183,11 +183,29 @@ function HazePlane() {
 
 function SceneContents() {
   const group = useRef<THREE.Group>(null);
+  const progressRef = useRef(0);
   const particleCount = typeof window !== "undefined" && window.innerWidth < 768 ? 260 : 560;
 
+  useEffect(() => {
+    const onScroll = () => {
+      const hero = document.querySelector<HTMLElement>("#bismillah");
+      if (!hero) return;
+      const rect = hero.getBoundingClientRect();
+      const vh = window.innerHeight || 1;
+      progressRef.current = clamp01((vh - rect.top) / (vh + rect.height));
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, []);
+
   useFrame(() => {
-    if (!group.current || !wrapper.current) return;
-    const progress = Number.parseFloat(wrapper.current.style.getPropertyValue("--p")) || 0.5;
+    if (!group.current) return;
+    const progress = progressRef.current;
     const leave = clamp01(Math.max(0, progress - 0.52) * 3.1);
     group.current.scale.setScalar(1 + leave * 0.08);
     group.current.position.y = leave * 0.35;

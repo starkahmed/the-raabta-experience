@@ -1,5 +1,5 @@
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, type RefObject } from "react";
 import * as THREE from "three";
 import { useScrollProgress } from "@/hooks/use-parallax";
 
@@ -181,9 +181,8 @@ function HazePlane() {
   );
 }
 
-function HeroScene() {
+function SceneContents({ wrapper }: { wrapper: RefObject<HTMLDivElement | null> }) {
   const group = useRef<THREE.Group>(null);
-  const wrapper = useScrollProgress<HTMLDivElement>();
   const particleCount = typeof window !== "undefined" && window.innerWidth < 768 ? 260 : 560;
 
   useFrame(() => {
@@ -203,6 +202,24 @@ function HeroScene() {
   });
 
   return (
+    <>
+      <CameraDrift />
+      <ambientLight intensity={0.42} color={themeColor("--dusk", "#38466d")} />
+      <group ref={group}>
+        <HazePlane />
+        <ParticleField count={particleCount} />
+        {Array.from({ length: 5 }, (_, index) => (
+          <LightVessel key={index} index={index} />
+        ))}
+      </group>
+    </>
+  );
+}
+
+export function WebGLHero() {
+  const wrapper = useScrollProgress<HTMLDivElement>();
+
+  return (
     <div ref={wrapper} className="webgl-hero absolute inset-0" aria-hidden>
       <Canvas
         camera={{ position: [0, 0, 6.5], fov: 42 }}
@@ -211,20 +228,8 @@ function HeroScene() {
         gl={{ alpha: true, antialias: true, powerPreference: "high-performance" }}
         style={{ pointerEvents: "none" }}
       >
-        <CameraDrift />
-        <ambientLight intensity={0.42} color={themeColor("--dusk", "#38466d")} />
-        <group ref={group}>
-          <HazePlane />
-          <ParticleField count={particleCount} />
-          {Array.from({ length: 5 }, (_, index) => (
-            <LightVessel key={index} index={index} />
-          ))}
-        </group>
+        <SceneContents wrapper={wrapper} />
       </Canvas>
     </div>
   );
-}
-
-export function WebGLHero() {
-  return <HeroScene />;
 }

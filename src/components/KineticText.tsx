@@ -1,4 +1,4 @@
-import type { CSSProperties, ElementType, ReactNode } from "react";
+import { createElement, type CSSProperties, type ElementType, type ReactNode } from "react";
 
 /**
  * Splits text into per-letter spans wrapped in a per-word mask so GSAP can
@@ -38,7 +38,7 @@ export function KineticText({
           style={{ transitionDelay: `${baseDelay + i * step}s` }}
         >
           {ch}
-        </span>
+        </span>,
       );
     }
     nodes.push(
@@ -48,9 +48,9 @@ export function KineticText({
         style={{ lineHeight: 1.05 }}
       >
         {letters}
-      </span>
+      </span>,
     );
     if (wi < words.length - 1) nodes.push(<span key={`s-${wi}`}>&nbsp;</span>);
   });
-  return <As className={className} style={style} {...rest}>{nodes}</As>;
+  return createElement(As, { className, style, ...rest }, nodes);
 }

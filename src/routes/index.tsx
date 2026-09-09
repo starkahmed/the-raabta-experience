@@ -177,6 +177,13 @@ function Invitation() {
                 baseDelay={0.3}
                 data-cursor="magnetic"
               />
+              <p
+                className="cine-fade text-script text-gold text-3xl sm:text-4xl md:text-5xl mt-2 leading-[1.4]"
+                style={{ "--fade-delay": "0.65s" } as CSSProperties}
+                data-cursor="magnetic"
+              >
+                Ceremony
+              </p>
               <div
                 className="cine-fade gold-sweep mt-7 md:mt-8 space-y-2 text-cream/85"
                 style={{ "--fade-delay": "0.8s" } as CSSProperties}

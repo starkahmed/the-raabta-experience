@@ -10,7 +10,9 @@ const clamp01 = (value: number) => Math.min(1, Math.max(0, value));
 function themeColor(name: string, fallback: string) {
   if (typeof document === "undefined") return new THREE.Color(fallback);
   const value = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
-  return new THREE.Color(value || fallback);
+  // Three.js cannot parse oklch() CSS color values, so fall back to the provided hex.
+  if (!value || value.startsWith("oklch")) return new THREE.Color(fallback);
+  return new THREE.Color(value);
 }
 
 function CameraDrift() {

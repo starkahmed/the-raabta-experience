@@ -83,50 +83,6 @@ function ParticleField({ count }: { count: number }) {
   );
 }
 
-function LightVessel({ index }: { index: number }) {
-  const group = useRef<THREE.Group>(null);
-  const color = useMemo(() => themeColor("--gold", "#d8aa62"), []);
-  const ember = useMemo(() => themeColor("--ember", "#bf6c3b"), []);
-  const phase = index * 1.21;
-  const x = (index - 2) * 1.28;
-  const y = index % 2 === 0 ? 0.75 : -0.4;
-  const scale = index % 2 === 0 ? 0.82 : 0.58;
-
-  useFrame(({ clock }) => {
-    if (!group.current) return;
-    const time = clock.elapsedTime * 0.34 + phase;
-    group.current.position.y = y + Math.sin(time) * 0.18;
-    group.current.rotation.z = Math.sin(time * 0.7) * 0.08;
-    group.current.rotation.y += 0.002;
-  });
-
-  return (
-    <group ref={group} position={[x, y, -1.5 - (index % 3) * 0.65]} scale={scale}>
-      <mesh position={[0, 0.38, 0]}>
-        <torusGeometry args={[0.17, 0.018, 8, 32]} />
-        <meshBasicMaterial color={color} transparent opacity={0.82} />
-      </mesh>
-      <mesh>
-        <cylinderGeometry args={[0.18, 0.12, 0.46, 8]} />
-        <meshStandardMaterial
-          color={color}
-          emissive={ember}
-          emissiveIntensity={1.7}
-          metalness={0.35}
-          roughness={0.32}
-          transparent
-          opacity={0.9}
-        />
-      </mesh>
-      <mesh position={[0, -0.3, 0]}>
-        <coneGeometry args={[0.13, 0.16, 8]} />
-        <meshBasicMaterial color={color} transparent opacity={0.72} />
-      </mesh>
-      <pointLight color={ember} intensity={0.22} distance={2.4} />
-    </group>
-  );
-}
-
 function HazePlane() {
   const material = useRef<THREE.ShaderMaterial>(null);
   const uniforms = useMemo(
@@ -226,9 +182,6 @@ function SceneContents() {
       <group ref={group}>
         <HazePlane />
         <ParticleField count={particleCount} />
-        {Array.from({ length: 5 }, (_, index) => (
-          <LightVessel key={index} index={index} />
-        ))}
       </group>
     </>
   );

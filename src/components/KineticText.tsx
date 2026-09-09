@@ -1,4 +1,4 @@
-import type { CSSProperties, ElementType, ReactNode } from "react";
+import { createElement, type CSSProperties, type ElementType, type ReactNode } from "react";
 
 /**
  * Splits text into per-letter spans wrapped in a per-word mask so GSAP can

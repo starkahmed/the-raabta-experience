@@ -38,7 +38,7 @@ export function KineticText({
           style={{ transitionDelay: `${baseDelay + i * step}s` }}
         >
           {ch}
-        </span>
+        </span>,
       );
     }
     nodes.push(
@@ -48,7 +48,7 @@ export function KineticText({
         style={{ lineHeight: 1.05 }}
       >
         {letters}
-      </span>
+      </span>,
     );
     if (wi < words.length - 1) nodes.push(<span key={`s-${wi}`}>&nbsp;</span>);
   });

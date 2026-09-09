@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState, type CSSProperties } from "react";
+import { MapPinned } from "lucide-react";
 import archImg from "@/assets/mughal-arch.jpg";
 
 import nikahAsset from "@/assets/nikah-stage-new.png.asset.json";
@@ -14,7 +15,6 @@ import { BismillahScene } from "@/components/BismillahScene";
 import { MosqueScene } from "@/components/MosqueScene";
 import { ParallaxImage } from "@/components/ParallaxImage";
 import { RollingDigits } from "@/components/RollingDigits";
-import { CalendarButton } from "@/components/CalendarButton";
 import { Ornament, OrnamentDivider } from "@/components/Ornament";
 
 export const Route = createFileRoute("/")({
@@ -204,25 +204,11 @@ function Invitation() {
                   target="_blank"
                   rel="noopener noreferrer"
                   data-cursor="magnetic"
-                  className={mapLink}
+                  className={`${mapLink} route-button`}
                 >
-                  SEE THE ROUTE
+                  <MapPinned size={17} strokeWidth={1.6} aria-hidden="true" />
+                  <span>SAVE THE ROUTE</span>
                 </a>
-                <CalendarButton
-                  event={{
-                    title: "Nikah Ceremony — Ahmed Raza & Nazziya",
-                    description:
-                      "Join us for the Nikah ceremony of Ahmed Raza Shaikh and Nazziya. After Namaz-e-Maghrib, 6:45 PM.",
-                    location:
-                      "Raaga Palace, Mother Teresa Flyover, near Nathu Nadhe Corner, Vijay Nagar, Kalewadi, Pimpri-Chinchwad, Pune, Maharashtra 411017",
-                    startDate: new Date("2026-10-26T18:45:00+05:30"),
-                    endDate: new Date("2026-10-26T20:30:00+05:30"),
-                  }}
-                  filename="nikah-ahmed-raza-nazziya.ics"
-                  className={mapLink}
-                >
-                  ADD TO CALENDAR
-                </CalendarButton>
               </div>
             </div>
             <div className="order-1 md:order-2 relative min-w-0">
@@ -283,25 +269,11 @@ function Invitation() {
                   target="_blank"
                   rel="noopener noreferrer"
                   data-cursor="magnetic"
-                  className={mapLink}
+                  className={`${mapLink} route-button`}
                 >
-                  SEE THE ROUTE
+                  <MapPinned size={17} strokeWidth={1.6} aria-hidden="true" />
+                  <span>SAVE THE ROUTE</span>
                 </a>
-                <CalendarButton
-                  event={{
-                    title: "Walima Reception — Ahmed Raza & Nazziya",
-                    description:
-                      "Join us for the Walima reception of Ahmed Raza Shaikh and Nazziya. Evening dinner reception starting 7 PM onwards.",
-                    location:
-                      "MDS Banquets & Lawns, Dadasaheb Sahasrabudhe Rd, Kiwale, Ravet, Pimpri-Chinchwad, Maharashtra 412101",
-                    startDate: new Date("2026-10-28T19:00:00+05:30"),
-                    endDate: new Date("2026-10-28T22:30:00+05:30"),
-                  }}
-                  filename="walima-ahmed-raza-nazziya.ics"
-                  className={mapLink}
-                >
-                  ADD TO CALENDAR
-                </CalendarButton>
               </div>
             </div>
           </div>

@@ -434,6 +434,24 @@
     border-color 400ms var(--ease-veil),
     letter-spacing 500ms var(--ease-silk);
 }
+
+.route-button {
+  gap: 0.55rem;
+  border: 1px solid color-mix(in oklch, var(--color-gold) 45%, transparent);
+  border-radius: 999px;
+  padding-inline: 1rem;
+  transition:
+    color 400ms var(--ease-veil),
+    border-color 400ms var(--ease-veil),
+    background-color 400ms var(--ease-veil),
+    letter-spacing 500ms var(--ease-silk);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .route-button:hover {
+    background-color: color-mix(in oklch, var(--color-gold) 12%, transparent);
+  }
+}
 @media (hover: hover) and (pointer: fine) {
   .link-quiet:hover {
     color: var(--color-cream);

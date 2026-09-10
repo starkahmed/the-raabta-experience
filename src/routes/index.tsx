@@ -111,7 +111,7 @@ function Invitation() {
               baseDelay={1.1}
             />
             <p
-              className="invite-calligraphy text-script text-ember text-5xl sm:text-6xl md:text-8xl mt-12 md:mt-14 leading-[1.4]"
+              className="invite-calligraphy text-script text-ember text-7xl sm:text-8xl md:text-9xl mt-12 md:mt-14 leading-[1.4]"
               style={{ "--fade-delay": "1.7s" } as CSSProperties}
               data-cursor="magnetic"
             >

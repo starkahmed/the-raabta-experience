@@ -152,6 +152,24 @@
 }
 .cine-chapter.cine-in .cine-fade { opacity: 1; transform: translateY(0); }
 
+/* Dramatic calligraphy reveal: a soft veil unfurls into crisp lettering. */
+.cine-chapter .invite-calligraphy {
+  opacity: 0;
+  filter: blur(10px);
+  transform: translateY(42px) scale(0.82) rotate(-2deg);
+  transform-origin: center bottom;
+  transition:
+    opacity 900ms var(--ease-veil),
+    filter 1400ms var(--ease-silk),
+    transform 1600ms var(--ease-spring);
+  transition-delay: var(--fade-delay, 0.6s);
+}
+.cine-chapter.cine-in .invite-calligraphy {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0) scale(1) rotate(0deg);
+}
+
 .cine-chapter .cine-image {
   opacity: 0;
   transform: scale(1.06);
@@ -218,6 +236,7 @@
 @media (prefers-reduced-motion: reduce) {
   .cine-chapter .cine-letter,
   .cine-chapter .cine-fade,
+  .cine-chapter .invite-calligraphy,
   .cine-chapter .cine-image,
   .cine-chapter .cine-rule {
     transition: none !important;

@@ -164,7 +164,7 @@ function Invitation() {
           <div className="max-w-6xl w-full grid md:grid-cols-2 gap-10 md:gap-14 items-center">
             <div className="relative order-2 md:order-1 text-center md:text-left min-w-0">
               <p
-                className="cine-fade text-gold/85 text-[0.65rem] sm:text-xs tracking-[0.3em] mb-3"
+                className="cine-fade text-gold/85 text-xs sm:text-sm tracking-[0.3em] mb-3"
                 style={{ "--fade-delay": "0.2s" } as CSSProperties}
               >
                 THE SACRED VOWS

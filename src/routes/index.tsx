@@ -129,29 +129,29 @@ function Invitation() {
         {/* Bride & Groom */}
          <Chapter id="couple" className="!min-h-[78vh]">
           <div className="text-center w-full max-w-4xl mx-auto">
-            <KineticText
-              text="AHMED RAZA"
-              as="h1"
-              className="text-display text-cream text-[13vw] sm:text-7xl md:text-9xl leading-none tracking-tight"
-              step={0.045}
-              baseDelay={0.1}
-            />
+            <h1
+              className="cine-fade text-script text-cream text-[14vw] sm:text-8xl md:text-[9rem] leading-[1.1] tracking-normal"
+              style={{ "--fade-delay": "0.2s" } as CSSProperties}
+              data-cursor="magnetic"
+            >
+              Ahmed Raza
+            </h1>
             <p
-              className="cine-fade text-script text-gold text-4xl sm:text-5xl md:text-7xl my-5 md:my-6 leading-[1.4]"
-              style={{ "--fade-delay": "0.9s" } as CSSProperties}
+              className="cine-fade text-script text-gold text-5xl sm:text-6xl md:text-8xl my-4 md:my-5 leading-[1.1]"
+              style={{ "--fade-delay": "0.7s" } as CSSProperties}
               data-cursor="magnetic"
             >
               &amp;
             </p>
-            <KineticText
-              text="NAZZIYA"
-              as="h1"
-              className="text-display text-cream text-[13vw] sm:text-7xl md:text-9xl leading-none tracking-tight"
-              step={0.045}
-              baseDelay={1.2}
-            />
+            <h1
+              className="cine-fade text-script text-cream text-[14vw] sm:text-8xl md:text-[9rem] leading-[1.1] tracking-normal"
+              style={{ "--fade-delay": "1.2s" } as CSSProperties}
+              data-cursor="magnetic"
+            >
+              Nazziya
+            </h1>
             <p
-              className="cine-fade text-cream/70 text-script text-xl sm:text-2xl md:text-3xl mt-10 leading-[1.5]"
+              className="cine-fade text-cream/70 text-script text-xl sm:text-2xl md:text-3xl mt-8 md:mt-10 leading-[1.5]"
               style={{ "--fade-delay": "2s" } as CSSProperties}
             >
               26 October 2026 · Pune

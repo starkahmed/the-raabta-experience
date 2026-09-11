@@ -76,7 +76,7 @@ function Invitation() {
               data-cursor="magnetic"
             />
             <p
-              className="cine-fade mt-8 md:mt-10 text-cream/70 text-[0.65rem] sm:text-xs tracking-[0.3em]"
+               className="cine-fade mt-8 md:mt-10 text-cream/70 text-xs sm:text-sm tracking-[0.3em]"
               style={{ "--fade-delay": "1.3s" } as CSSProperties}
             >
               THE HOLY QUR&rsquo;AN · SURAH AR-RUM 30:21
@@ -88,7 +88,7 @@ function Invitation() {
         <Chapter id="invitation">
           <div className="text-center max-w-3xl mx-auto">
             <p
-              className="cine-fade text-cream/70 text-[0.65rem] sm:text-xs tracking-[0.3em] mb-8"
+               className="cine-fade text-cream/70 text-xs sm:text-sm tracking-[0.3em] mb-8"
               style={{ "--fade-delay": "0.2s" } as CSSProperties}
             >
               WITH THE BLESSINGS OF THE ALMIGHTY
@@ -127,7 +127,7 @@ function Invitation() {
         </Chapter>
 
         {/* Bride & Groom */}
-        <Chapter id="couple">
+         <Chapter id="couple" className="!min-h-[78vh]">
           <div className="text-center w-full max-w-4xl mx-auto">
             <KineticText
               text="AHMED RAZA"
@@ -221,7 +221,7 @@ function Invitation() {
         </Chapter>
 
         {/* Walima */}
-        <Chapter id="walima" className="py-24 md:py-0">
+         <Chapter id="walima" className="py-24 md:py-0 !min-h-[84vh]">
           <div className="max-w-6xl w-full grid md:grid-cols-2 gap-10 md:gap-14 items-center">
             <div className="relative min-w-0">
               <ParallaxImage
@@ -231,7 +231,7 @@ function Invitation() {
             </div>
             <div className="text-center md:text-left min-w-0">
               <p
-                className="cine-fade text-gold/85 text-[0.65rem] sm:text-xs tracking-[0.3em] mb-3"
+                 className="cine-fade text-gold/85 text-xs sm:text-sm tracking-[0.3em] mb-3"
                 style={{ "--fade-delay": "0.2s" } as CSSProperties}
               >
                 THE CELEBRATION FEAST
@@ -300,7 +300,7 @@ function Invitation() {
               data-cursor="magnetic"
             />
             <p
-              className="cine-fade mt-8 md:mt-10 text-cream/85 tracking-[0.3em] text-[0.65rem] sm:text-xs"
+               className="cine-fade mt-8 md:mt-10 text-cream/85 tracking-[0.3em] text-xs sm:text-sm"
               style={{ "--fade-delay": "1.7s" } as CSSProperties}
             >
               26.10.2026 · PUNE
@@ -435,7 +435,7 @@ function Invitation() {
                       <RollingDigits value={ready ? pad(u.v) : "--"} />
                     </div>
 
-                    <div className="text-[0.6rem] sm:text-xs md:text-sm tracking-[0.2em] mt-2 text-muted-foreground">
+                     <div className="text-xs sm:text-sm md:text-base tracking-[0.2em] mt-2 text-muted-foreground">
                       {u.l.toUpperCase()}
                     </div>
                   </div>

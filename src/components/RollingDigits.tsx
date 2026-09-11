@@ -6,9 +6,9 @@ import { useEffect, useRef, useState } from "react";
 export function RollingDigits({ value, className = "" }: { value: string; className?: string }) {
   return (
     <div className={`flex justify-center ${className}`}>
-      {value.split("").map((ch, i) => (
-        <RollingDigit key={i} char={ch} />
-      ))}
+      {value === "--"
+        ? "--"
+        : value.split("").map((ch, i) => <RollingDigit key={i} char={ch} />)}
     </div>
   );
 }

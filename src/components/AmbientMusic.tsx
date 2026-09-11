@@ -71,7 +71,7 @@ export function AmbientMusic() {
       onClick={toggle}
       aria-label={playing ? "Pause background music" : "Play background music"}
       data-cursor="magnetic"
-      className="fixed bottom-5 right-5 z-50 flex h-11 w-11 items-center justify-center rounded-full border border-gold/40 bg-black/30 text-gold backdrop-blur-md transition-colors hover:border-gold hover:text-cream"
+       className="fixed bottom-7 right-7 z-50 flex h-11 w-11 items-center justify-center rounded-full border border-gold/40 bg-black/30 text-gold backdrop-blur-md transition-colors hover:border-gold hover:text-cream sm:bottom-6 sm:right-6"
     >
       <span className="flex items-end gap-[2px] h-4" aria-hidden="true">
         {[0, 1, 2].map((i) => (

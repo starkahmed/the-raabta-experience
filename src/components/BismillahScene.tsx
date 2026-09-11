@@ -51,7 +51,7 @@ export function BismillahScene() {
       {/* content */}
       <div
         className="absolute inset-0 flex items-center justify-center px-6 will-change-transform"
-        style={{ transform: "translate3d(0, calc(var(--p, 0) * -40px), 0)" }}
+        style={{ transform: "translate3d(0, calc(-4vh + var(--p, 0) * -40px), 0)" }}
       >
         <div className="text-center max-w-3xl">
           <p
